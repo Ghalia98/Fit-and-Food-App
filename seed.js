@@ -7,11 +7,10 @@ mongoose.connect(connectionString)
     .catch(err => console.log(`Error while creating connection ${err}`))
 
 const Recipe = require('./models/Recipe')
+const User = require('./models/User')
 
 
 const recipes =
-
-
     [
         {
 
@@ -38,7 +37,7 @@ const recipes =
                 "3 tablespoon olive oil\r",
                 "2 pound frozen shrimp"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/baked-shrimp.jpg",
             "tags": [
                 "seafood",
                 "shrimp",
@@ -60,7 +59,7 @@ const recipes =
                 "1 lb strawberries, (2 pints)\r",
                 "4 tbsp brandy"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/Strawberries-Romanoff-5.jpg",
             "tags": [
                 "fruit",
                 "dessert",
@@ -90,7 +89,7 @@ const recipes =
                 "1\/2 cup part-skim ricotta\r",
                 "1 1\/2 tsp calabrian chile paste"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/broccoli-mozzarella-pizza.jpg",
             "tags": [
                 "vegetarian",
                 "pizza",
@@ -123,7 +122,7 @@ const recipes =
                 "3 tbsp extra-virgin olive oil\r",
                 "1\/2 cup crumbled feta cheese"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/warm-shrimp-and-potato-salad.png",
             "tags": [
                 "shrimp",
                 "seafood",
@@ -152,7 +151,7 @@ const recipes =
                 "1\/4 lemon, juiced\r",
                 "2\/3 cup nonfat plain Greek yogurt, for serving"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/mushroom-and-lentil-soup.jpg",
             "tags": [
                 "soup",
                 "lentils",
@@ -182,7 +181,7 @@ const recipes =
                 "1\/3 cup all-purpose flour\r",
                 "2 tbsp fresh basil leaves, chiffonade, for garnish"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/tomato-basil-soup-with-dumplings.jpg",
             "tags": [
                 "soup",
                 "vegetarian",
@@ -204,7 +203,7 @@ const recipes =
                 "1 tbsp capers, rinsed and chopped\r",
                 "1 tbsp red onion, minced"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/smoked-salmon-baked-potatoes.jpg",
             "tags": [
                 "potatoes",
                 "salmon",
@@ -231,7 +230,7 @@ const recipes =
                 "2 tablespoon chopped cilantro\r",
                 "1\/2 teaspoon fresh lime juice"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/mexican-potato-omelet.jpg",
             "tags": [
                 "vegetarian",
                 "main",
@@ -261,7 +260,7 @@ const recipes =
                 "2 cup rolled oats\r",
                 "2 cup semisweet chocolate chips"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/Chocolate-Chip-Cookies.jpg",
             "tags": [
                 "dessert",
                 "cookies"
@@ -286,7 +285,7 @@ const recipes =
                 "1 1\/2 tsp lemon juice\r",
                 "1\/2 tsp almond extract"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/Angel-Food-Cake.jpg",
             "tags": [
                 "dessert",
                 "untried"
@@ -315,7 +314,7 @@ const recipes =
                 "1 avocado, pitted, peeled and thinly sliced\r",
                 "1 cup packed shredded romaine lettuce"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/tacos.jpg",
             "tags": [
                 "vegetarian",
                 "mexican",
@@ -342,7 +341,7 @@ const recipes =
                 "2 1\/2 tablespoon butter or margarine\r",
                 "2 tablespoon light corn syrup or honey"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/Chocolate-Dipped-Macaroons-3.jpg",
             "tags": [
                 "cookies",
                 "dessert"
@@ -366,7 +365,7 @@ const recipes =
                 "black pepper, to taste\r",
                 "1\/2 tsp parmesan"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/morning_pizza2.jpeg",
             "tags": [
                 "breakfast"
             ]
@@ -397,7 +396,7 @@ const recipes =
                 "1 cup cooked short-grain white rice\r",
                 "sesame salt, for sprinkling"
             ],
-            "url": "asdasd",
+            "url": "/images/recipe-images/mini_hamburger.jpg",
             "tags": [
                 "bento",
                 "main"
@@ -406,6 +405,110 @@ const recipes =
 
     ]
 
+const users = [
+    {
+        name: "Natalie Millie",
+        username: "Natalie98",
+        password: "helloNatalie123",
+        email: "NatalieMillie@gmail.com",
+        gender: "Female",
+        age: 23,
+        city: "Berlin",
+        imageUrl: "/images/user-images/NatalieMillie.jpg",
+        introduction: "Hi I'm Natalie, I live in Berlin. I really like cooking and love sharing my recipes with people!",
+    },
+    {
+        name: "Adam Johns",
+        username: "Adam_Johns",
+        password: "cooking_Adam",
+        email: "lyla2004@gmail.com",
+        gender: "Male",
+        age: 35,
+        city: "Berlin",
+        imageUrl: "/images/user-images/AdamJohns.jpg",
+        introduction: "Hello everyone, I'm Adam! I spend most of my times cooking and I’m always curious about new recipes."
+    },
+    {
+        name: "John J King",
+        username: "John.King",
+        password: "John123!abc",
+        email: "halle2004 @hotmail.com",
+        gender: "Male",
+        age: 50,
+        city: "Berlin",
+        imageUrl: "/images/user-images/JohnJKing.jpg",
+        introduction: "I'm John, I recently started cooking and I enjoy a lot.So I'm here to look for new recipes and share mine!"
+    },
+    {
+        name: "Ellie Summers",
+        username: "ellie_sumers3",
+        password: "hello365",
+        email: "ellie @gmail.com",
+        gender: "Female",
+        age: 27,
+        city: "Berlin",
+        imageUrl: "/images/user-images/Ellie Summers.jpg",
+        introduction: "Hi! I'm an enthusiastic chef who loves sharing her recipe ideas"
+    }
+    ,
+    {
+        name: "Linda Nolan",
+        username: "lindaCooks",
+        password: "pass465",
+        email: "lindaaa @gmail.com",
+        gender: "Female",
+        age: 23,
+        city: "Berlin",
+        imageUrl: "/images/user-images/Linda Nolan.jpg",
+        introduction: "A web developer who experiments with her cooking on the weekends"
+    },
+    {
+        name: "Cameron Jace",
+        username: "cam4u",
+        password: "ignite482",
+        email: "camjason @gmail.com",
+        gender: "Male",
+        age: 36,
+        city: "Berlin",
+        imageUrl: "/images/user-images/Cameron Jace.jpg",
+        introduction: "A restaurant owner who is a passionate cook as well"
+    },
+    {
+        name: "Laura M Maysonet",
+        username: "laura_84",
+        password: "aaa1984",
+        email: "lauram1984 @hotmail.com",
+        gender: "Female",
+        age: 30,
+        imageUrl: "/images/user-images/Laura-Maysonet.jpg",
+        city: "Berlin",
+        introduction: "I like everything related to foods.I'm a food lover."
+    },
+    {
+        name: "Daniel A Dishon",
+        username: "daniel_trainer",
+        password: "99zzzz",
+        email: "danield@gmail.com",
+        gender: "Female",
+        age: 25,
+        imageUrl: "/images/user-images/Daniel-Dishon.jpg",
+        city: "Berlin",
+        introduction: "I'm a personal trainer in Berlin.I like creating healthy food recipes for my customers and share with others people."
+    },
+    {
+        name: "Judith C Kelly",
+        username: "Judith_Berlin",
+        password: "mydailyrecipe",
+        email: "judith @gmail.com",
+        gender: "Female",
+        age: 45,
+        imageUrl: "/images/user-images/Judith-Kelly.jpg",
+        city: "Berlin",
+        introduction: "I'm a housewife with 3 kids at home.I like cooking and preparing delicious foods for my family, especially baking cakes."
+    }
+
+]
+
 Recipe.insertMany(recipes)
     .then(recipes => {
         console.log(`Success - added ${recipes.length} recipes to the db`)
@@ -413,6 +516,13 @@ Recipe.insertMany(recipes)
     })
     .catch(err => console.log(err))
 
-// recipes.forEach(recipe => {
-//     Recipe.create(recipe)
-// })
+
+
+// User.insertMany(users)
+//     .then(users => {
+//         console.log(`Success - added ${users.length} users to the db`)
+//         mongoose.connection.close()
+//     })
+//     .catch(err => console.log(err))
+
+// 

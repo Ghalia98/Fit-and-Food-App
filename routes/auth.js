@@ -64,12 +64,11 @@ router.post('/login', (req, res, next) => {
                 // res.send(req.session.user)
                 res.redirect('/profile')
             } else {
-                res.render('/login', {
+                res.render('authentication/login', {
                     message: 'Invalid Credentials'
                 })
             }
         })
-    res.render('authentication/login')
 })
 
 module.exports = router;

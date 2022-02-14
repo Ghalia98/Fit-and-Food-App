@@ -1,16 +1,19 @@
 const router = require("express").Router();
 const bcrypt = require('bcryptjs');
 const User = require("../models/User");
+const uploader = require('../config/cloudinary')
 
 
 router.get('/signup', (req, res, next) => {
     res.render('authentication/signup')
 })
 
-router.post('/signup', (req, res, next) => {
-    const { name, username, password, email, gender, age, city, url } = req.body
+router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
+    const { name, username, password, email, gender, age, city } = req.body
     // res.send(req.body)
+    const imageUrl = req.file.path
     // is the password + 4 chars
+    console.log(req.file)
     if (password.length < 4) {
         res.render('signup', { message: 'Your password needs to be min 4 chars' })
         return
@@ -31,7 +34,7 @@ router.post('/signup', (req, res, next) => {
                 const salt = bcrypt.genSaltSync()
                 const hash = bcrypt.hashSync(password, salt)
                 // create the user
-                User.create({ name, username, password: hash, email, gender, age, city, url })
+                User.create({ name, username, password: hash, email, gender, age, city, imageUrl })
                     .then(createdUser => {
                         console.log(createdUser)
                         res.redirect('/login')

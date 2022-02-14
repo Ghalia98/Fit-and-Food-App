@@ -58,8 +58,8 @@ router.post('/login', (req, res, next) => {
             if (bcrypt.compareSync(password, userFromDB.password)) {
                 console.log('authenticated')
                 req.session.user = userFromDB
-                res.send(req.session.user)
-                // res.redirect('/profile')
+                // res.send(req.session.user)
+                res.redirect('/profile')
             } else {
                 res.render('/login', {
                     message: 'Invalid Credentials'

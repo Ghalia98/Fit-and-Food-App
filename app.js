@@ -41,9 +41,8 @@ app.use(
     })
 )
 
-
-
 // end of session configuration
+
 // 👇 Start handling routes here
 const index = require("./routes/index");
 app.use("/", index);

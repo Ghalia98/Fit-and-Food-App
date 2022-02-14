@@ -1,0 +1,24 @@
+<h1>Sign up</h1>
+<form action="/signup" method="post">
+<label for="name">name:</label>
+<input type="text" name="name" id="name">
+<label for="username">Username:</label>
+<input type="text" name="username" id="username">
+<label for="password">Password:</label>
+<input type="password" name="password" id="password">
+<label for="email">Email:</label>
+<input type="email" name="email" id="email">
+<select name="gender" id="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+</select>
+<label for="age">Age:</label>
+<input type="number" placeholder="age" name="age" id="age">
+{{!-- add an image input --}}
+{{!-- add a city input, load all cities from Germany --}}
+<input type="text">
+<label for="w3review">Review of W3Schools:</label>
+<textarea id="intro" name="intro" rows="4" cols="50" placeholder="Introduce yourself..">
+</textarea>
+<button>Sign up</button>
+</form>

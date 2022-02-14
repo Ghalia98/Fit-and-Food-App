@@ -12,13 +12,23 @@
     <option value="male">Male</option>
     <option value="female">Female</option>
 </select>
+{{!-- add min and max to age --}}
 <label for="age">Age:</label>
 <input type="number" placeholder="age" name="age" id="age">
 {{!-- add an image input --}}
+<label for="url">Profile pic</label>
+<input type="text" placeholder="url" name="url" id="url">
+
 {{!-- add a city input, load all cities from Germany --}}
+<label for="city">City</label>
+<input type="city" placeholder="city" name="city" id="city">
+
 <input type="text">
-<label for="w3review">Review of W3Schools:</label>
+<label for="intro">Intro</label>
 <textarea id="intro" name="intro" rows="4" cols="50" placeholder="Introduce yourself..">
 </textarea>
-<button>Sign up</button>
+<button type="submit">Sign up</button>
+{{#if message}}
+<p>{{message}}</p>
+{{/if}}
 </form>

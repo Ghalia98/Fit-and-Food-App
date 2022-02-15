@@ -1,49 +1,25 @@
-<h1>Sign up</h1>
-<div class="form-container">
-<form action="/auth/signup" method="post" enctype="multipart/form-data" id="signup-form">
-<div class="mb-3">
-<label for="name" class="form-label">Name:</label>
-<input type="text" name="name" id="name" class="form-control" required>
+
+<div class="form-container container col-8">
+  <div class="row">
+<form action="/auth/signup" method="post" enctype="multipart/form-data" id="signup-form" class="col" >
+<div class="row">
+  <div class="col-6">
+<div class="mb-2 col-11 input-group-sm">
+<label for="name" class="form-label">Name<span>*</span></label>
+<input type="text" name="name" placeholder="Enter your full name"  id="name" class="form-control" required>
 </div>
-<div class="mb-3">
-<label for="username" class="form-label">Username:</label>
-<input type="text" name="username" class="form-control" id="username" required>
+<div class="mb-2 col-11 input-group-sm">
+<label for="username" class="form-label">Username<span>*</span></label>
+<input type="text" name="username" placeholder="Enter your username"class="form-control" id="username" required>
 </div>
 
-  <div class="mb-3">
-    <label for="InputPassword1" class="form-label">Password:</label>
-    <input type="password" name="password" class="form-control" id="InputPassword1">
+  <div class="mb-2 col-11 input-group-sm">
+    <label class="form-label "for="age">Age:</label>
+<input class="form-control" type="number" placeholder="Enter your age" name="age" id="age" min="15" max="100">
   </div>
 
-  <div class="mb-3">
-    <label for="InputEmail1" class="form-label">Email Address:</label>
-    <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-
-<div class="mb-3">
-    <label class="form-label "for="gender">Gender:</label>
-<select name="gender" id="gender" class="form-select" aria-label="Default select example" name="city">
-  <option selected>Specify gender</option>
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-</select>
-</div>
-{{!-- added a min age of 15 and a max of 100 --}}
-<div  class="mb-3">
-<label class="form-label "for="age">Age:</label>
-<input class="form-control" type="number" placeholder="age" name="age" id="age" min="15" max="100">
-</div>
-{{!-- add an image input --}}
-<div class="mb-3">
-  <label for="formFile" class="form-label">Default file input example</label>
-  <input name="imageUrl" class="form-control" type="file" id="formFile">
-</div>
-
-
-{{!-- add a city input, load all cities from Germany --}}
-<div>
-<label for="city">City:</label>
+  <div class="mb-2 col-11 input-group-sm">
+    <label class="form-label" for="city">City<span>*</span></label>
 <select class="form-select" aria-label="Default select example" name="city">
   <option selected>Select City</option>
   <option value="Berlin">Berlin</option>
@@ -52,14 +28,56 @@
     <option value="Munich">Munich</option>
     <option value="Other">Other</option>
 </select>
+  </div>
 </div>
-<div class="mb-3">
-  <label for="FormControlTextarea1" class="form-label">Write short introduction about yourself:</label>
+<div class="col-6">
+
+<div  class="mb-2 col-11 input-group-sm">
+  <label for="InputEmail1" class="form-label">Email Address<span>*</span></label>
+    <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="example@address.com">
+    {{!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
+
+</div>
+{{!-- add an image input --}}
+<div class="mb-2 col-11 input-group-sm">
+  <label for="InputPassword1" class="form-label">Password<span>*</span></label>
+    <input type="password" name="password" class="form-control" id="InputPassword1" placeholder="Enter your password">
+</div>
+
+
+{{!-- add a city input, load all cities from Germany --}}
+<div class="mb-2 col-11 input-group-sm">
+  <label class="form-label "for="gender">Gender:</label>
+<select name="gender" id="gender" class="form-select" aria-label="Default select example" name="city">
+  <option selected>Specify gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+</select>
+
+</div>
+<div class="mb-3 col-11 input-group-sm">
+  <label for="formFile" class="form-label">Upload a Profile Picture:</label>
+  <input name="imageUrl" class="form-control" type="file" id="formFile">
+ 
+</div>
+
+</div>
+
+<div class="mb-2 col-11 input-group-sm">
+     <label for="FormControlTextarea1" class="form-label">Write a short introduction about yourself:</label>
   <textarea placeholder="Type here.."class="form-control" id="FormControlTextarea1" rows="3"></textarea>
 </div>
-<button type="submit">Sign up</button>
 {{#if message}}
 <p>{{message}}</p>
 {{/if}}
+<button type="submit" class="btn btn-outline-danger btn-md btn-block" id="signup-btn">Create Account</button>
+<span>Already have an account? <a href="/auth/login"> Log in</a></span> 
 </form>
+</div>
+<div class="col bg-tint" id="image-container" >
+  <div id="text-on-pic"><h1>Sign up</h1></div>
+  <img src="/images/auth-images/signup_form_photo.jpg" alt="A cover picture of the form" id="cover-img"  >
+</div>
+</div>
+
 </div>

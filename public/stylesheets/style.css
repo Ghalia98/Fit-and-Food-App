@@ -2,6 +2,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100vh;
 }
 
 a {
@@ -32,14 +33,68 @@ h3 {
 } */
 
 .form-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.233);
-  border-radius: 50px;
+  border-radius: 30px;
   width: 70%;
-  margin: auto;
+  /* margin: auto; */
+  height: 100%;
+  border: solid rgba(0, 0, 0, 0.13);
+  margin: 5% auto;
 }
 #signup-form {
   padding: 30px;
+  height: 100%;
+}
+#image-container {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+#image-container img {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 28px;
+  border-bottom-right-radius: 28px;
+  margin: 0;
+  padding: 0;
+}
+.bg-tint {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-tint::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 30, 30, 0.438);
+  border-top-right-radius: 28px;
+  border-bottom-right-radius: 28px;
+}
+#signup-btn {
+  margin-top: 2%;
+  /* margin-bottom: 2%; */
+}
+
+#signup-btn + span {
+  padding-top: 1%;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+}
+#text-on-pic {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  color: rgb(255, 255, 255);
+  z-index: 1;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.form-container label span {
+  padding-left: 2px;
+  color: red;
 }

@@ -5,6 +5,7 @@ const recipeSchema = new Schema({
         type: String,
         required: true
     },
+    description: String,
     source: String,
     cooktime: Number,
     servings: Number,

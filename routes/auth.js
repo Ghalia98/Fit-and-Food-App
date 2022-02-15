@@ -10,9 +10,9 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
     const { name, username, password, email, gender, age, city } = req.body
-    // res.send(req.body)
+        // res.send(req.body)
     const imageUrl = req.file.path
-    // is the password + 4 chars
+        // is the password + 4 chars
     console.log(req.file)
     if (password.length < 4) {
         res.render('signup', { message: 'Your password needs to be min 4 chars' })
@@ -33,7 +33,7 @@ router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
                 // and hash the password
                 const salt = bcrypt.genSaltSync()
                 const hash = bcrypt.hashSync(password, salt)
-                // create the user
+                    // create the user
                 User.create({ name, username, password: hash, email, gender, age, city, imageUrl })
                     .then(createdUser => {
                         console.log(createdUser)
@@ -61,7 +61,7 @@ router.post('/login', (req, res, next) => {
             if (bcrypt.compareSync(password, userFromDB.password)) {
                 console.log('authenticated')
                 req.session.user = userFromDB
-                // res.send(req.session.user)
+                    // res.send(req.session.user)
                 res.redirect('/profile')
             } else {
                 res.render('authentication/login', {

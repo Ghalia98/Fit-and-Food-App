@@ -47,6 +47,9 @@ app.use(
 const index = require("./routes/index");
 app.use("/", index);
 
+const recipes = require("./routes/recipes");
+app.use("/recipe", recipes);
+
 const auth = require("./routes/auth");
 app.use("/", auth);
 

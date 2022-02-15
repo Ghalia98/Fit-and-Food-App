@@ -1,0 +1,27 @@
+{{#with recipe}}
+
+    <div class="recipe-card">
+        <h1 class="recipe-name">{{name}}</h1>
+        <h3>Source: </h3><a href="{{source}}" target="_blank">{{source}}</a>
+        <h3>Cook Time: </h3>{{cooktime}}
+        <h3>Servings: </h3>{{servings}}
+        <h3>Calories: </h3>{{calories}}
+
+        <h3>Instructions: </h3>
+        <ol>
+        {{#each instructions}}
+            <li>{{this}}</li>
+        {{/each}}
+        </ol>
+
+        <h3>Ingredients: </h3>
+        <ul>
+        {{#each ingredients}}
+            <li>{{this}}</li>
+        {{/each}}
+        </ul>
+        <img src="{{url}}" alt="Image of {{name}}" class="recipe-picture">
+        <h3>Tags: </h3>{{tags}}
+    </div>
+
+{{/with}}

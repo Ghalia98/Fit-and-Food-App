@@ -2,41 +2,36 @@
 {{!-- https://getbootstrap.com/docs/5.0/layout/columns/ --}}
 {{!-- <p>Inspire others to cook your dish</p> --}}
 
-<form action="" class="col-6 justify-content-center">
+<form action="/recipe/new" class="col-6 justify-content-center" method="POST">
     <div class="input-group mb-3">
-        <input type="file" class="form-control">
+        <input type="file" class="form-control" name="url">
         <label class="input-group-text" for="recipe-image">Upload your recipe photo</label>
     </div>
     <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" name="title" placeholder="Grandma's dumpling" required="required">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Grandma's dumpling" required="required">
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
       <textarea class="form-control" name="description" rows="3" placeholder="Introduce us about your recipe - who inspired it, who you cooked it for, on which occasion you cooked or why it's special... "></textarea>
     </div>
     <div class="mb-3">
-      <label for="origin" class="form-label">Origin</label>
-      <select class="form-control" name="origin">
-        <option></option>
-        <option></option>
-        <option></option>
-      </select>
+        <label for="source" class="form-label">Origin (optional)</label>
+        <input type="text" class="form-control" name="source" placeholder="get inspired from...">
+    </div>
+    <div class="mb-3">
+      <label for="cooktime" class="form-label">Cook time</label>
+      <input type="number" class="form-control" name="cooktime" placeholder="">
     </div>
     <div class="mb-3">
       <label for="servings" class="form-label">Servings</label>
-      <select class="form-control" name="serves">
-        <option>2 people</option>
-        <option>3 people</option>
-        <option>4 people</option>
-        <option>5 people and more</option>
-      </select>
+      <input type="number" class="form-control" name="servings" placeholder="">
     </div>
     <div class="mb-3">
-      <label for="cook-time" class="form-label">Cook time</label>
-      <input type="text" class="form-control" name="cook-time" placeholder="1hr30mins">
+      <label for="calories" class="form-label">Calories</label>
+      <input type="number" class="form-control" name="calories" placeholder="">
     </div>
-       <div class="mb-3">
+    <div class="mb-3">
       <label for="ingredients" class="form-label">Ingredients</label>
       <input type="text" class="form-control" name="ingredients" placeholder="250gr flour">
       <input type="text" class="form-control" name="ingredients" placeholder="100ml milk">
@@ -48,13 +43,19 @@
         <button class="btn btn-primary" type="button">Add more ingredients</button>
     </div>
     <div class="mb-3">
-      <label for="instruction" class="form-label">Instruction</label>
-      <textarea class="form-control" name="instruction" rows="3" placeholder="Step1"></textarea>
-      <textarea class="form-control" name="instruction" rows="3" placeholder="Step2"></textarea>
-      <textarea class="form-control" name="instruction" rows="3" placeholder="Step3"></textarea>
+      <label for="instructions" class="form-label">Instructions</label>
+      <textarea class="form-control" name="instructions" rows="3" placeholder="Step1"></textarea>
+      <textarea class="form-control" name="instructions" rows="3" placeholder="Step2"></textarea>
+      <textarea class="form-control" name="instructions" rows="3" placeholder="Step3"></textarea>
     </div>
         <div class="d-grid gap-2">
         <button class="btn btn-primary" type="button">Add more steps</button>
     </div>
-
+    <div class="mb-3">
+      <label for="tags" class="form-label">Tags</label>
+      <input type="text" class="form-control" name="tags" placeholder="">
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-primary" type="submit">Add a new recipe</button>
+    </div>
 </form>

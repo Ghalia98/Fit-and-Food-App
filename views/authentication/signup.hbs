@@ -1,0 +1,45 @@
+<h1>Sign up</h1>
+<form action="/signup" method="post" enctype="multipart/form-data">
+<label for="name">Name:</label>
+<input type="text" name="name" id="name" required>
+<label for="username">Username:</label>
+<input type="text" name="username" id="username" required>
+<label for="password">Password:</label>
+<input type="password" name="password" id="password" required>
+<label for="email">Email:</label>
+<input type="email" name="email" id="email" required>
+<label for="gender">Gender:</label>
+<select name="gender" id="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+</select>
+{{!-- added a min age of 15 and a max of 100 --}}
+<label for="age">Age:</label>
+<input type="number" placeholder="age" name="age" id="age" min="15" max="100">
+{{!-- add an image input --}}
+<label for="imageUrl">Upload Profile Pic:</label>
+<input type="file" name="imageUrl" id="imageUrl">
+{{!-- <label for="url">Profile pic</label>
+<input type="text" placeholder="url" name="url" id="url"> --}}
+
+{{!-- add a city input, load all cities from Germany --}}
+<label for="city">City:</label>
+<select name="city" id="city">
+    <option value="berlin">Berlin</option>
+    <option value="frankfurt">Frankfurt</option>
+    <option value="hamburg">Hamburg</option>
+    <option value="munich">Munich</option>
+    <option value="other">Other</option>
+</select>
+{{!-- <label for="city">City</label>
+<input type="city" placeholder="city" name="city" id="city"> --}}
+
+<input type="text">
+<label for="intro">Intro</label>
+<textarea id="intro" name="intro" rows="4" cols="50" placeholder="Introduce yourself..">
+</textarea>
+<button type="submit">Sign up</button>
+{{#if message}}
+<p>{{message}}</p>
+{{/if}}
+</form>

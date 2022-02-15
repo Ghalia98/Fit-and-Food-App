@@ -37,7 +37,7 @@ router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
                 User.create({ name, username, password: hash, email, gender, age, city, imageUrl })
                     .then(createdUser => {
                         console.log(createdUser)
-                        res.redirect('/login')
+                        res.redirect('/auth/login')
                     })
                     .catch(err => next(err))
             }

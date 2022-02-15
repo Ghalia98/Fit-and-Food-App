@@ -1,6 +1,6 @@
 <h1>Sign up</h1>
-
-<form action="/auth/signup" method="post" enctype="multipart/form-data">
+<div class="form-container">
+<form action="/auth/signup" method="post" enctype="multipart/form-data" id="signup-form">
 <div class="mb-3">
 <label for="name" class="form-label">Name:</label>
 <input type="text" name="name" id="name" class="form-control" required>
@@ -39,23 +39,11 @@
   <label for="formFile" class="form-label">Default file input example</label>
   <input name="imageUrl" class="form-control" type="file" id="formFile">
 </div>
-{{!-- <div  class="mb-3">
-<label for="imageUrl">Upload Profile Pic:</label>
-<input type="file" name="imageUrl" id="imageUrl">
-</div> --}}
-{{!-- <label for="url">Profile pic</label>
-<input type="text" placeholder="url" name="url" id="url"> --}}
+
 
 {{!-- add a city input, load all cities from Germany --}}
 <div>
 <label for="city">City:</label>
-{{!-- <select name="city" id="city">
-    <option value="berlin">Berlin</option>
-    <option value="frankfurt">Frankfurt</option>
-    <option value="hamburg">Hamburg</option>
-    <option value="munich">Munich</option>
-    <option value="other">Other</option>
-</select> --}}
 <select class="form-select" aria-label="Default select example" name="city">
   <option selected>Select City</option>
   <option value="Berlin">Berlin</option>
@@ -65,13 +53,6 @@
     <option value="Other">Other</option>
 </select>
 </div>
-{{!-- <label for="city">City</label>
-<input type="city" placeholder="city" name="city" id="city"> --}}
-{{!-- <div>
-<label for="intro">Write short introduction about yourself:</label>
-<textarea id="intro" name="intro" rows="4" cols="50" placeholder="Introduce yourself..">
-</textarea>
-</div> --}}
 <div class="mb-3">
   <label for="FormControlTextarea1" class="form-label">Write short introduction about yourself:</label>
   <textarea placeholder="Type here.."class="form-control" id="FormControlTextarea1" rows="3"></textarea>
@@ -81,3 +62,4 @@
 <p>{{message}}</p>
 {{/if}}
 </form>
+</div>

@@ -1,26 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins&display=swap");
 body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-    color: #00b7ff;
+  color: #00b7ff;
 }
 
 h1 {
-    color: 15px;
+  color: 15px;
 }
 
 .recipe-picture {
-    width: 500px
+  width: 500px;
 }
 
 .recipe-card h1,
 h3 {
-    font-family: 'Marcellus', serif;
+  font-family: "Marcellus", serif;
 }
-
 
 /* .carousel-item {
   height: 100vh;
@@ -31,3 +30,16 @@ h3 {
   -o-background-size: cover;
   background-size: cover;
 } */
+
+.form-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.233);
+  border-radius: 50px;
+  width: 70%;
+  margin: auto;
+}
+#signup-form {
+  padding: 30px;
+}

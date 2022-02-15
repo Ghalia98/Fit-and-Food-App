@@ -60,6 +60,7 @@ router.post('/login', (req, res, next) => {
             }
             if (bcrypt.compareSync(password, userFromDB.password)) {
                 console.log('authenticated')
+                console.log(req.session)
                 req.session.user = userFromDB
                 // res.send(req.session.user)
                 res.redirect('/profile')

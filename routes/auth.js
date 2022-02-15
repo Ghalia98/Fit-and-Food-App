@@ -15,7 +15,7 @@ router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
     // is the password + 4 chars
     console.log(req.file)
     if (password.length < 4) {
-        res.render('signup', { message: 'Your password needs to be min 4 chars' })
+        res.render('authentication/signup', { message: 'Your password needs to be min 4 chars' })
         return
     }
     if (username.length === 0) {

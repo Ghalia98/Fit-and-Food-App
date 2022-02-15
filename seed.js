@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
-const connectionString = process.env.MONGO_URI || 'mongodb://localhost:27017/recipe-app'
+const connectionString = process.env.MONGODB_URI || 'mongodb://localhost:27017/recipe-app'
 console.log('this is the key: ', connectionString)
 mongoose.connect(connectionString)
     .then(db => console.log(`Connected to database ${db.connections[0].name}`))
@@ -13,6 +13,7 @@ const User = require('./models/User')
 const recipes = [{
 
         "name": "Baked Shrimp Scampi",
+        "creater": "620b9a8205b0329c4e5e7cb8",
         "source": "Ina Garten: Barefoot Contessa Back to Basics",
         "cooktime": 0,
         "servings": 6,
@@ -45,6 +46,7 @@ const recipes = [{
     {
 
         "name": "Strawberries Romanov (La Madeleine copycat)",
+        "creater": "620b9a8205b0329c4e5e7cb9",
         "source": "http:\/\/cookeatshare.com\/recipes\/la-madeleine-s-strawberries-romanov-318025",
         "cooktime": 0,
         "servings": 4,
@@ -69,6 +71,7 @@ const recipes = [{
     {
 
         "name": "Broccoli and Mozzarella Pizza",
+        "creater": "620b9a8205b0329c4e5e7cba",
         "source": "Blue Apron",
         "cooktime": 0,
         "servings": 2,
@@ -96,6 +99,7 @@ const recipes = [{
     },
     {
         "name": "Warm shrimp and potato salad",
+        "creater": "620b9a8205b0329c4e5e7cbb",
         "source": "Food Network Magazine Nov 2011",
         "cooktime": 1800,
         "servings": 4,
@@ -130,6 +134,7 @@ const recipes = [{
     },
     {
         "name": "Mushroom and lentil soup",
+        "creater": "620b9a8205b0329c4e5e7cbc",
         "source": "Everyday Food Nov 2011",
         "cooktime": 0,
         "servings": 4,
@@ -159,6 +164,7 @@ const recipes = [{
     },
     {
         "name": "Tomato-Basil Soup with Ricotta Dumplings",
+        "creater": "620b9a8205b0329c4e5e7cbd",
         "source": "http:\/\/new.pamperedchef.com\/recipe\/95261",
         "cooktime": 840,
         "servings": 2,
@@ -189,6 +195,7 @@ const recipes = [{
     {
 
         "name": "Smoked salmon baked potatoes",
+        "creater": "620b9a8205b0329c4e5e7cbe",
         "source": "Food Network Magazine 50 Stuffed Potatoes",
         "cooktime": 3600,
         "servings": 4,
@@ -211,6 +218,7 @@ const recipes = [{
     {
 
         "name": "Mexican potato omelet",
+        "creater": "620b9a8205b0329c4e5e7cbe",
         "source": "http:\/\/www.marthastewart.com\/316610\/mexican-potato-omelet",
         "cooktime": 1800,
         "servings": 4,
@@ -240,6 +248,7 @@ const recipes = [{
     {
 
         "name": "Mesquite chocolate chip cookies",
+        "creater": "620b9a8205b0329c4e5e7cbf",
         "source": "Super Natural Cooking by Heidi Swanson",
         "cooktime": 600,
         "servings": 48,
@@ -267,6 +276,7 @@ const recipes = [{
     {
 
         "name": "The best angel food cake",
+        "creater": "620b9a8205b0329c4e5e7cbc",
         "source": "Cook's Illustrated",
         "cooktime": 3600,
         "servings": 12,
@@ -292,6 +302,7 @@ const recipes = [{
     {
 
         "name": "Black bean and cheese tacos",
+        "creater": "620b9a8205b0329c4e5e7cba",
         "source": "Everyday Food June 2011",
         "cooktime": 420,
         "servings": 2,
@@ -322,8 +333,8 @@ const recipes = [{
     {
 
         "name": "Chocolate dipped coconut macaroons",
+        "creater": "620b9a8205b0329c4e5e7cb8",
         "source": "http:\/\/www.kingarthurflour.com\/recipes\/chocolate-dipped-coconut-macaroons-recipe",
-
         "cooktime": 0,
         "servings": 1,
         "calories": 0,
@@ -348,6 +359,7 @@ const recipes = [{
     {
 
         "name": "Morning pizza",
+        "creater": "620b9a8205b0329c4e5e7cb8",
         "source": "Real Simple",
         "cooktime": 120,
         "servings": 1,
@@ -371,8 +383,8 @@ const recipes = [{
     {
 
         "name": "Mini hamburger bento (Select a mini burger recipe too)",
+        "creater": "620b9a8205b0329c4e5e7cbb",
         "source": "The Just Bento Cookbook by Itoh",
-
         "cooktime": 0,
         "servings": 1,
         "calories": 348,
@@ -521,4 +533,3 @@ User.insertMany(users)
     })
     .catch(err => console.log(err))
 
-//

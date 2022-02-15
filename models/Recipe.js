@@ -5,6 +5,12 @@ const recipeSchema = new Schema({
         type: String,
         required: true
     },
+
+    creater: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+
     source: String,
     cooktime: Number,
     servings: Number,

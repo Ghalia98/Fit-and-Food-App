@@ -11,6 +11,7 @@ const recipeSchema = new Schema({
         ref: 'User'
     },
 
+    description: String,
     source: String,
     cooktime: Number,
     servings: Number,

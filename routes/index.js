@@ -7,8 +7,6 @@ router.get("/", (req, res, next) => {
   res.render("index");
 })
 
-
-
 function loginCheck() {
   return (req, res, next) => {
     if (req.session.user) {
@@ -19,8 +17,8 @@ function loginCheck() {
     } else {
       res.redirect('/login')
     }
-  }
 
+  }
 }
 
 router.get('/profile', loginCheck(), (req, res, next) => {

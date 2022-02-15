@@ -41,6 +41,12 @@ app.use(
     })
 )
 
+app.use(function(req, res, next) {
+    res.locals.session = req.session;
+
+    next();
+});
+
 // end of session configuration
 
 // 👇 Start handling routes here
@@ -52,9 +58,6 @@ app.use("/recipe", recipes);
 
 const auth = require("./routes/auth");
 app.use("/auth", auth);
-
-const newRecipe = require("./routes/new-recipe");
-app.use("/", newRecipe);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

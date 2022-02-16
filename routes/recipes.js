@@ -2,6 +2,9 @@ const router = require("express").Router();
 const Recipe = require("../models/Recipe");
 const User = require("../models/User");
 const { uploadRecipeImages } = require('../config/cloudinary');
+const { uploader } = require('../config/cloudinary')
+
+const cloudinary = require('cloudinary').v2;
 
 
 //user want to add a new recipe
@@ -20,12 +23,13 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
     const { name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body;
     const url = req.file.path
     const creater = req.session.user._id
-        //filter the empty inputs
+    const publicId = req.file.filename
+    //filter the empty inputs
     const filteredIngredients = ingredients.filter((ingredient) => ingredient.length > 0)
     const filteredInstructions = instructions.filter((step) => step.length > 0)
 
     //create a new recipe in the db
-    Recipe.create({ url, name, description, source, cooktime, servings, calories, ingredients: filteredIngredients, instructions: filteredInstructions, tags, creater })
+    Recipe.create({ url, publicId, name, description, source, cooktime, servings, calories, ingredients: filteredIngredients, instructions: filteredInstructions, tags, creater })
         .then(recipeFromDB => {
             console.log(recipeFromDB)
             //console.log(recipeFromDB.url)
@@ -43,8 +47,8 @@ router.get("/search", (req, res, next) => {
 
     Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } })
         .then(recipe => {
-            
-            res.render("recipe/search", {recipe, searchTerm})
+
+            res.render("recipe/search", { recipe, searchTerm })
         })
         .catch(err => next(err))
 })
@@ -84,14 +88,21 @@ router.get(`/:id/edit`, (req, res, next) => {
 })
 
 // edit recipes
-router.post('/:id', (req, res, next) => {
+router.post('/:id', uploadRecipeImages.single('url'), (req, res, next) => {
     const id = req.params.id
-    const { name, ingredients, instructions, description, _id } = req.body
+    const url = req.file.path
+    const publicId = req.file.filename
+    const { name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body
     Recipe.findByIdAndUpdate(id, {
-        name, ingredients, instructions, description, _id
+        url, name, description, source, cooktime, servings, calories, ingredients, instructions, tags, publicId
     }, { new: true })
-        .then(updatedRecipe => {
-            res.redirect(`/${id}`)
+        .then(recipeFromDB => {
+            console.log("this is the clg ", recipeFromDB)
+            console.log(recipeFromDB.publicId)
+            if (recipeFromDB.url) {
+                cloudinary.uploader.destroy(recipeFromDB.publicId)
+            }
+            res.redirect('/recipe/' + recipeFromDB._id)
         })
         .catch(err => next(err))
 })

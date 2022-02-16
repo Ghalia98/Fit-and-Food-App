@@ -4,19 +4,19 @@
       <h1>Edit your recipe</h1>
       {{!-- https://getbootstrap.com/docs/5.0/layout/columns/ --}}
       {{!-- enctype must be added for file uploads --}}
-      {{#with}}
-      <form action="/recipe/{{_id}}" method="POST" enctype="multipart/form-data">
+     
+      <form action="/recipe/{{recipe._id}}" method="POST" enctype="multipart/form-data">
         <div class="input-group mb-3">
           <input type="file" class="form-control" name="url" required>
           <label class="input-group-text" for="recipe-image">Upload your recipe photo</label>
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" name="name" placeholder="Grandma's dumpling" value={{name}}>
+          <input type="text" class="form-control" name="name" placeholder="Grandma's dumpling" value={{recipe.name}}>
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <textarea value={{description}}class="form-control" name="description" rows="3"
+          <textarea value={{recipe.description}} class="form-control" name="description" rows="3"
             placeholder="Introduce us about your recipe - who inspired it, who you cooked it for, on which occasion you cooked or why it's special... "></textarea>
         </div>
         <div class="mb-3">
@@ -61,7 +61,7 @@
           <button class="btn btn-primary" type="submit">Edit your recipe</button>
         </div>
       </form>
-      {{/with}}
+   
     </div>
   </div>
 </div>

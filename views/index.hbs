@@ -1,11 +1,11 @@
 {{!-- https://getbootstrap.com/docs/5.1/components/carousel/ --}}
 {{!-- https://blossomthemes.com/theme-demo/?theme=blossom-recipe --}}
 
-<div class="search">
-  <form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search for recipes" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-  </form>
+<div class="search-bar">
+    <form action="/recipe/search" method="GET" class="d-flex">
+        <input name="recipeTitle" class="form-control me-2" type="text" placeholder="Search for recipes" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
 </div>
 <br>
 

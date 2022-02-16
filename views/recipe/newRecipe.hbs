@@ -6,7 +6,7 @@
       {{!-- enctype must be added for file uploads --}}
       <form action="/recipe/new" method="POST" enctype="multipart/form-data">
         <div class="input-group mb-3">
-          <input type="file" class="form-control" name="url">
+          <input type="file" class="form-control" name="url" required=“required”>
           <label class="input-group-text" for="recipe-image">Upload your recipe photo</label>
         </div>
         <div class="mb-3">

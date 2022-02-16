@@ -49,7 +49,6 @@ router.get("/:id", (req, res, next) => {
     console.log(id)
     Recipe.findById(id)
         .then(recipe => {
-            console.log(recipe)
             res.render("recipe/detail", { recipe: recipe })
         })
         .catch(err => next(err))

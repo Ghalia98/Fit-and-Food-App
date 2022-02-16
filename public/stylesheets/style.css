@@ -41,10 +41,6 @@ h3 {
     font-size: 18px
 }
 
-.search {
-    margin: 4em
-}
-
 .carousel img {
     height: auto;
 }
@@ -66,7 +62,7 @@ footer {
 }
 
 .search-bar{
-    margin: 20px 0px;
+    margin: 4em
 }
 
 .recipes-in-search{

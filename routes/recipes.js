@@ -31,6 +31,17 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
         })
 });
 
+router.get("/search", (req, res, next) => {
+
+    let searchTerm = req.query.recipeTitle
+
+    Recipe.find( { 'name' : { '$regex' : ".*" + searchTerm + ".*", '$options' : 'i' } } )
+        .then(recipe => {
+            console.log(recipe)
+            res.render("recipe/search", {recipe})
+        })
+        .catch(err => next(err))
+})
 
 router.get("/:id", (req, res, next) => {
 
@@ -43,6 +54,7 @@ router.get("/:id", (req, res, next) => {
         })
         .catch(err => next(err))
 })
+
 
 
 module.exports = router;

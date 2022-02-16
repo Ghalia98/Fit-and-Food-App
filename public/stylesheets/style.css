@@ -65,6 +65,27 @@ footer {
     margin-top: 15em;
 }
 
+.search-bar{
+    margin: 20px 0px;
+}
+
+.recipes-in-search{
+    background-color: #ddf1f4;
+    padding: 15px 0px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.recipes-in-search a{
+    text-decoration: none;
+    color: black;
+}
+
+.recipes-in-search p{
+
+    padding-left: 10px;
+}
+
 
 /* .carousel-item {
   height: 100vh;

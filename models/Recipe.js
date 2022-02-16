@@ -25,7 +25,10 @@ const recipeSchema = new Schema({
         type: [String],
         required: true
     },
-    url: String,
+    url: {
+        type: String,
+        required: true
+    },
     tags: [String]
 });
 

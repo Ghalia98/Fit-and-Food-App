@@ -20,10 +20,15 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
     const { name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body;
     const url = req.file.path
     const creater = req.session.user._id
+        //filter the empty inputs
+    const filteredIngredients = ingredients.filter((ingredient) => ingredient.length > 0)
+    const filteredInstructions = instructions.filter((step) => step.length > 0)
+
     //create a new recipe in the db
-    Recipe.create({ url, name, description, source, cooktime, servings, calories, ingredients, instructions, tags, creater })
+    Recipe.create({ url, name, description, source, cooktime, servings, calories, ingredients: filteredIngredients, instructions: filteredInstructions, tags, creater })
         .then(recipeFromDB => {
             console.log(recipeFromDB)
+            //console.log(recipeFromDB.url)
             res.redirect('/recipe/' + recipeFromDB._id)
         })
         .catch(err => {
@@ -38,8 +43,8 @@ router.get("/search", (req, res, next) => {
 
     Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } })
         .then(recipe => {
-
-            res.render("recipe/search", { recipe })
+            
+            res.render("recipe/search", {recipe, searchTerm})
         })
         .catch(err => next(err))
 })
@@ -47,12 +52,10 @@ router.get("/search", (req, res, next) => {
 
 
 router.get("/:id", (req, res, next) => {
-
     const id = req.params.id
     console.log(id)
     Recipe.findById(id)
         .then(recipe => {
-            console.log(recipe)
             res.render("recipe/detail", { recipe: recipe })
         })
         .catch(err => next(err))

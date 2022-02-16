@@ -6,8 +6,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>{{title}}</title>
-      <link rel="stylesheet" href="/stylesheets/style.css" />
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link rel="stylesheet" href="/stylesheets/style.css" />
    </head>
 
    <body>
@@ -24,20 +24,16 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recipes</a></li>
-                           {{!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                 <li><a class="dropdown-item" href="#">Action</a></li>
-                                 <li><a class="dropdown-item" href="#">Another action</a></li>
-                                 <li><hr class="dropdown-divider"></li>
-                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
-                              </ul> --}}
-                        <li class="nav-item"><a class="nav-link" href="#">Fun facts about food</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Recipes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Food facts</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Food events</a></li>
                      </ul>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                           {{#if true}}
+                           {{#if session.user}}
                               <a href="/recipe/new"><button class="btn btn-primary" type="button">Create a new recipe</button></a>
-                              <a href="/users"><button class="btn btn-primary" type="button">My profile</button></a>
+                              <a href="/profile"><button class="btn btn-primary" type="button">My profile</button></a>
+                              <a href="/signout"><button class="btn btn-primary" type="button">Sign out</button></a>
+                           {{else}}
                               <a href="/auth/login"><button class="btn btn-primary" type="button">Login</button></a>
                               <a href="/auth/signup"><button class="btn btn-primary" type="button">Signup</button></a>
                            {{/if}}
@@ -54,7 +50,7 @@
 
       {{!-- https://mdbootstrap.com/docs/standard/navigation/footer/ --}}
       <footer class="bg-light text-center text-lg-start">
-         <div class="container p-4 pb-0">
+         <div class="container p-4 pb-0 d-flex justify-content-center">
             <form action="">
                <div class="row">
                   <div class="col-auto mb-4 mb-md-0">
@@ -67,10 +63,8 @@
                         <input type="email" id="form5Example25" class="form-control" />
                      </div>
                   </div>
-                     <div class="col-auto mb-4 mb-md-0">
                         <button type="submit" class="btn btn-primary mb-4">Subscribe</button>
-                     </div>
-                  </div>
+               </div>
             </form>
          </div>
          <!-- Copyright -->

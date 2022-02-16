@@ -28,6 +28,7 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
     Recipe.create({ url, name, description, source, cooktime, servings, calories, ingredients: filteredIngredients, instructions: filteredInstructions, tags, creater })
         .then(recipeFromDB => {
             console.log(recipeFromDB)
+            //console.log(recipeFromDB.url)
             res.redirect('/recipe/' + recipeFromDB._id)
         })
         .catch(err => {
@@ -42,8 +43,8 @@ router.get("/search", (req, res, next) => {
 
     Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } })
         .then(recipe => {
-
-            res.render("recipe/search", { recipe })
+            
+            res.render("recipe/search", {recipe, searchTerm})
         })
         .catch(err => next(err))
 })
@@ -55,7 +56,6 @@ router.get("/:id", (req, res, next) => {
     console.log(id)
     Recipe.findById(id)
         .then(recipe => {
-            console.log(recipe)
             res.render("recipe/detail", { recipe: recipe })
         })
         .catch(err => next(err))

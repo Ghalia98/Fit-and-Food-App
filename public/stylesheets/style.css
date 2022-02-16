@@ -39,14 +39,14 @@ h1 {
     margin: 2em;
     text-align: center;
     color: 15px;
+    font-size: 30px;
 }
 
 .recipe-picture {
     width: 500px;
 }
 
-.recipe-card h1,
-h3 {
+.recipe-card h1, .recipe-card h3 {
     font-family: "Marcellus", serif;
 }
 
@@ -96,25 +96,72 @@ footer {
     margin-top: 10em;
 }
 
-.search-bar {
-    margin: 4em
+.search-bar{
+    margin: 4em;
+    display: flex;
+    justify-content: center;
 }
 
-.recipes-in-search {
-    background-color: #ddf1f4;
-    padding: 15px 0px;
-    margin-bottom: 5px;
+.search-input-field{
+
+    border: 1px solid black;
+    border-radius: 0px;
+    padding: 15px;
+    width: 500px;
+}
+
+input.search-input-field{
+    color:black;
+}
+
+.search-heading{
+    text-align: center;
+}
+
+.recipes-in-search{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px 0px;
     border-radius: 5px;
+    justify-content: center;
 }
 
-.recipes-in-search a {
+.recipe-info-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 270px;
+    margin:15px 30px 0px 0px;
+}
+
+.recipe-info-box img{
+    width: 270px;
+    height: 420px;
+    object-fit: cover;
+}
+
+.recipe-info-box a{
     text-decoration: none;
     color: black;
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    font-weight: bold;
 }
 
-.recipes-in-search p {
-    padding-left: 10px;
-}
+
+
+/* .carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
 
 .form-container {
     border-radius: 30px;
@@ -188,3 +235,5 @@ footer {
     padding-left: 2px;
     color: red;
 }
+
+

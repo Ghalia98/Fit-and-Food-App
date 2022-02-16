@@ -44,6 +44,8 @@ router.get("/search", (req, res, next) => {
         .catch(err => next(err))
 })
 
+
+
 router.get("/:id", (req, res, next) => {
 
     const id = req.params.id
@@ -57,5 +59,13 @@ router.get("/:id", (req, res, next) => {
 })
 
 
+router.get('/:id/delete', (req, res, next) => {
+    const id = req.params.id
+    Recipe.findByIdAndDelete(id)
+        .then(() => {
+            res.redirect('/profile')
+        })
+        .catch(err => next(err))
+})
 
 module.exports = router;

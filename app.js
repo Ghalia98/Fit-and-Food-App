@@ -25,8 +25,8 @@ const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowe
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // https://cloudinary.com/documentation/resizing_and_cropping#scale.
-hbs.registerHelper('cloudinaryResize', function(url, transform) {
-    if (!url.match(/cloudinary\.com/)) {
+hbs.registerHelper('cloudinaryResize', function (url, transform) {
+    if (!url.indexOf(/cloudinary\.com/)) {
         return url;
     }
 
@@ -48,7 +48,7 @@ app.use(
     })
 )
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.locals.session = req.session;
 
     next();

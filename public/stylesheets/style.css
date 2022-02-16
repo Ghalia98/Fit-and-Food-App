@@ -9,6 +9,18 @@ body {
     color: #fff;
     background-color: chocolate;
     border-color: chocolate;
+    border-radius: 15px;
+}
+
+.nav-btn {
+    border-color: whitesmoke;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: black;
+    background-color: bisque;
+    height: 34px;
+    margin: 0;
+    border-radius: 15px;
 }
 
 .btn-primary:active,
@@ -18,8 +30,9 @@ body {
     background-color: chocolate;
 }
 
-a {
-    color: #00b7ff;
+.carousel-item a {
+    color: whitesmoke;
+    text-decoration: none;
 }
 
 h1 {
@@ -37,8 +50,30 @@ h3 {
     font-family: "Marcellus", serif;
 }
 
+.add-more-row {
+    margin: 0.5em 0 3em;
+}
+
+textarea {
+    margin: 0.5em 0;
+}
+
+.new-recipe {
+    background: url("https://res.cloudinary.com/dsbunxd7x/image/upload/v1645024072/background-recipe-form/andrew-ridley-jR4Zf-riEjI-unsplash_cmuvaf.jpg") no-repeat center;
+    background-size: 2050px;
+}
+
+.align-self-center {
+    background: white;
+    padding: 2em;
+}
+
 .new-recipe label {
     font-size: 18px
+}
+
+label span {
+    color: red
 }
 
 .carousel img {
@@ -58,40 +93,28 @@ h3 {
 }
 
 footer {
-    margin-top: 15em;
+    margin-top: 10em;
 }
 
-.search-bar{
+.search-bar {
     margin: 4em
 }
 
-.recipes-in-search{
+.recipes-in-search {
     background-color: #ddf1f4;
     padding: 15px 0px;
     margin-bottom: 5px;
     border-radius: 5px;
 }
 
-.recipes-in-search a{
+.recipes-in-search a {
     text-decoration: none;
     color: black;
 }
 
-.recipes-in-search p{
-
+.recipes-in-search p {
     padding-left: 10px;
 }
-
-
-/* .carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */
 
 .form-container {
     border-radius: 30px;

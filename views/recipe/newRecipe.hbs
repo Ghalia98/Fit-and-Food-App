@@ -1,60 +1,56 @@
 <div class="container new-recipe">
   <div class="row justify-content-center">
-    <div class="col-6">
-      <h1>Create a new recipe</h1>
+    <div class="col-6 align-self-center">
+      <h1>Create a new recipe 🍽</h1>
       {{!-- https://getbootstrap.com/docs/5.0/layout/columns/ --}}
       {{!-- enctype must be added for file uploads --}}
       <form action="/recipe/new" method="POST" enctype="multipart/form-data">
-        <div class="input-group mb-3">
+        <div class="mb-3">
+          {{!-- <label class="input-group-text" for="recipe-image">Upload your recipe photo</label> --}}
+          <label for="recipe-image" class="form-label">Upload your recipe photo<span>*</span></label>
           <input type="file" class="form-control" name="url" required>
-          <label class="input-group-text" for="recipe-image">Upload your recipe photo</label>
         </div>
         <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
+          <label for="name" class="form-label">Name<span>*</span></label>
           <input type="text" class="form-control" name="name" placeholder="Grandma's dumpling" required>
         </div>
         <div class="mb-3">
-          <label for="description" class="form-label">Description</label>
-          <textarea class="form-control" name="description" rows="3"
-            placeholder="Introduce us about your recipe - who inspired it, who you cooked it for, on which occasion you cooked or why it's special... "></textarea>
+          <label for="description" class="form-label">Description<span>*</span></label>
+          <textarea class="form-control" name="description" rows="3" placeholder="Introduce us about your recipe" required></textarea>
         </div>
         <div class="mb-3">
-          <label for="source" class="form-label">Origin (optional)</label>
+          <label for="source" class="form-label">Origin</label>
           <input type="text" class="form-control" name="source" placeholder="get inspired from...">
         </div>
         <div class="mb-3">
-          <label for="cooktime" class="form-label">Cook time</label>
-          <input type="number" class="form-control" name="cooktime" placeholder="">
+          <label for="cooktime" class="form-label">Cooktime (mins)<span>*</span></label>
+          <input type="number" min="0" class="form-control" name="cooktime" required>
         </div>
         <div class="mb-3">
-          <label for="servings" class="form-label">Servings</label>
-          <input type="number" class="form-control" name="servings" placeholder="">
+          <label for="servings" class="form-label">Servings (people)<span>*</span></label>
+          <input type="number" min="0" step="1" class="form-control" name="servings" required>
         </div>
         <div class="mb-3">
-          <label for="calories" class="form-label">Calories</label>
-          <input type="number" class="form-control" name="calories" placeholder="">
+          <label for="calories" class="form-label">Calories (kcal)</label>
+          <input type="number" min="0" step="1" class="form-control" name="calories">
         </div>
         <div class="mb-3 ingredients-container">
-          <label for="ingredients" class="form-label">Ingredients</label>
-          <input type="text" class="form-control" name="ingredients" placeholder="250gr flour">
+          <label for="ingredients" class="form-label">Ingredients<span>*</span></label>
+          <input type="text" class="form-control" name="ingredients" placeholder="250gr flour" required>
           <input type="text" class="form-control" name="ingredients" placeholder="100ml milk">
           <input type="text" class="form-control" name="ingredients" placeholder="250gr chicken breast">
         </div>
-        <div class="d-grid gap-2">
-          <button class="btn btn-primary add-ingredients" type="button">Add more ingredients</button>
-        </div>
+          <button class="btn btn-primary add-ingredients add-more-row" type="button">Add more ingredients</button>
         <div class="mb-3 instruction-steps">
-          <label for="instructions" class="form-label">Instructions</label>
-          <textarea class="form-control" name="instructions" rows="3" placeholder="Step1"></textarea>
-          <textarea class="form-control" name="instructions" rows="3" placeholder="Step2"></textarea>
-          <textarea class="form-control" name="instructions" rows="3" placeholder="Step3"></textarea>
+          <label for="instructions" class="form-label">Instructions<span>*</span></label>
+          <textarea class="form-control" name="instructions" rows="2" placeholder="Step1" required></textarea>
+          <textarea class="form-control" name="instructions" rows="2" placeholder="Step2"></textarea>
+          <textarea class="form-control" name="instructions" rows="2" placeholder="Step3"></textarea>
         </div>
-        <div class="d-grid gap-2">
-          <button class="btn btn-primary add-steps" type="button">Add more steps</button>
-        </div>
+          <button class="btn btn-primary add-steps add-more-row" type="button">Add more steps</button>
         <div class="mb-3">
           <label for="tags" class="form-label">Tags</label>
-          <input type="text" class="form-control" name="tags" placeholder="">
+          <input type="text" class="form-control" name="tags">
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
           <button class="btn btn-primary" type="submit">Add a new recipe</button>

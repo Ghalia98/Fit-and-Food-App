@@ -26,21 +26,14 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // https://cloudinary.com/documentation/resizing_and_cropping#scale.
 hbs.registerHelper('cloudinaryResize', function (url, transform) {
-<<<<<<< HEAD
-    if (typeof url === undefined) {
-        return url
-=======
-    if (!url.indexOf(/cloudinary\.com/)) {
-        return url;
->>>>>>> 0f04b9f1e1329fc420e99165e14e389283bca5b6
+    if (typeof url === 'undefined' || !url) {
+        return "";
     }
-    // if (!url.match(/cloudinary\.com/)) {
-    //     return url;
-    // }
-
+    if (url.indexOf('cloudinary.com') == -1) {
+        return url
+    }
     return url.replace(/image\/upload\/v[0-9]+/g, `image/upload/${transform}`);
 });
-
 // session configuration
 const session = require('express-session')
 const MongoStore = require('connect-mongo')

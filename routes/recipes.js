@@ -17,8 +17,9 @@ router.get("/new", (req, res, next) => {
 router.post('/new', (req, res, next) => {
     // get the values from request body. Create an object with keys.
     const { url, name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body;
+    const creater = req.session.user._id
     //create a new recipe in the db
-    Recipe.create({ url, name, description, source, cooktime, servings, calories, ingredients, instructions, tags })
+    Recipe.create({ url, name, description, source, cooktime, servings, calories, ingredients, instructions, tags, creater })
         .then(recipeFromDB => {
             console.log(recipeFromDB)
             res.redirect('/recipe/' + recipeFromDB._id)

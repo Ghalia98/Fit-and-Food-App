@@ -23,7 +23,19 @@ function loginCheck() {
 
 router.get('/profile', loginCheck(), (req, res, next) => {
   const user = req.session.user
-  res.render('user/profile', { user })
+  console.log('usermeee', user)
+  // so bascially the populate method only works on the find method
+  // which is why I had to find all the recipes first then populate, then query the result with the current user id.
+  Recipe.find().populate('creater')
+    .then(() => {
+      Recipe.find({ 'creater': user._id })
+        .then(userRecipes => {
+          res.render('user/profile', { user, recipe: userRecipes })
+          console.log('my recipe:', userRecipes)
+        })
+
+    })
+
 })
 
 module.exports = router;

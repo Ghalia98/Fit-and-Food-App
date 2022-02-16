@@ -11,3 +11,10 @@
 
 
 <h2>My Recipes</h2>
+{{#each recipe}}
+<h3>name: {{name}}</h1>
+<h4>description: {{description}}</h1>
+<h4>cooktime: {{cooktime}}</h1>
+<h4>servings:{{servings}}</h1>
+{{!-- <img src="{{url}}" alt=""> --}}
+{{/each}}

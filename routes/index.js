@@ -4,10 +4,16 @@ const User = require("../models/User")
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-
-    // render a view
-    res.render("index");
-
+    // https://docs.mongodb.com/manual/reference/operator/aggregation/sample/
+    //random recipe on homepage
+    Promise.all([
+            Recipe.aggregate([{ '$sample': { size: 5 } }]),
+            Recipe.aggregate([{ '$sample': { size: 4 } }])
+        ])
+        .then(([featureRecipes, gridRecipes]) => {
+            res.render('index', { featureRecipes, gridRecipes, doctitle: 'Homepage' })
+        })
+        .catch(err => next(err));
 })
 
 function loginCheck() {

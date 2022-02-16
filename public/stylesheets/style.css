@@ -1,7 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins&display=swap');
 body {
-    padding: 50px;
+    padding: 10px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: chocolate;
+    border-color: chocolate;
+}
+
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
+    color: white;
+    background-color: chocolate;
 }
 
 a {
@@ -9,7 +22,8 @@ a {
 }
 
 h1 {
-    color: 15px;
+    margin: 2em;
+    text-align: center;
 }
 
 .recipe-picture {
@@ -21,13 +35,30 @@ h3 {
     font-family: 'Marcellus', serif;
 }
 
+.new-recipe label {
+    font-size: 18px
+}
 
-/* .carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */
+.search {
+    margin: 4em
+}
+
+.carousel img {
+    height: auto;
+}
+
+.grid-recipes .col {
+    margin-bottom: 10px;
+}
+
+.grid-recipes .card-title {
+    margin: 0;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+footer {
+    margin-top: 15em;
+}

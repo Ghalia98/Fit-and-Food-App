@@ -27,8 +27,9 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 // https://cloudinary.com/documentation/resizing_and_cropping#scale.
 hbs.registerHelper('cloudinaryResize', function(url, transform) {
     if (typeof url === 'undefined' || !url) {
-        return '';
+        return "";
     }
+
     if (url.indexOf('cloudinary.com') == -1) {
         return url
     }
@@ -50,7 +51,7 @@ app.use(
     })
 )
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     res.locals.session = req.session;
 
     next();

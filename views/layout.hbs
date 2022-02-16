@@ -23,16 +23,16 @@
                   </button>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Recipes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Food facts</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Food events</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/"><button class="nav-btn">Home</button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><button class="nav-btn">Recipes</button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><button class="nav-btn">Food facts</button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><button class="nav-btn">Food events</button></a></li>
                      </ul>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                            {{#if session.user}}
                               <a href="/recipe/new"><button class="btn btn-primary" type="button">Create a new recipe</button></a>
                               <a href="/profile"><button class="btn btn-primary" type="button">My profile</button></a>
-                              <a href="/signout"><button class="btn btn-primary" type="button">Sign out</button></a>
+                              <a href="/auth/logout"><button class="btn btn-primary" type="button">Sign out</button></a>
                            {{else}}
                               <a href="/auth/login"><button class="btn btn-primary" type="button">Login</button></a>
                               <a href="/auth/signup"><button class="btn btn-primary" type="button">Signup</button></a>

@@ -21,12 +21,13 @@ function loginCheck() {
         if (req.session.user) {
             // then the user making the request is logged in
             // therefore user can proceed
+            console.log(req.session.user)
             next()
         } else {
             res.redirect('/login')
         }
-    }
 
+    }
 }
 
 router.get('/profile', loginCheck(), (req, res, next) => {

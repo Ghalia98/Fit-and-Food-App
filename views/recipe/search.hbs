@@ -1,10 +1,19 @@
-<h1 class="search-heading">Search Results</h1>
+<h3 class="search-heading">Search Results</h3>
+<div class="search-bar">
+    <form action="/recipe/search" method="GET" class="d-flex">
+        <input name="recipeTitle" class="form-control me-2 search-input-field" type="text" value="{{searchTerm}}" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>
 
+<div class="recipes-in-search">
 {{#each recipe}}
 
-    <div class="recipes-in-search">
-        <p><a href="/recipe/{{id}}">{{name}}</a></p>
+    <div class="recipe-info-box">
+        <img src="{{url}}" alt="image of {{name}}" class="img-fluid">
+        <a href="/recipe/{{id}}">{{name}}</a>
+
     </div>
-    
 
 {{/each}}
+</div>

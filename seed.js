@@ -526,10 +526,10 @@ Recipe.insertMany(recipes)
 
 
 
-User.insertMany(users)
-    .then(users => {
-        console.log(`Success - added ${users.length} users to the db`)
-        mongoose.connection.close()
-    })
-    .catch(err => console.log(err))
+// User.insertMany(users)
+//     .then(users => {
+//         console.log(`Success - added ${users.length} users to the db`)
+//         mongoose.connection.close()
+//     })
+//     .catch(err => console.log(err))
 

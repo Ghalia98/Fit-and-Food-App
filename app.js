@@ -26,7 +26,7 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // https://cloudinary.com/documentation/resizing_and_cropping#scale.
 hbs.registerHelper('cloudinaryResize', function(url, transform) {
-    if (!url.match(/cloudinary\.com/)) {
+    if (!url.indexOf(/cloudinary\.com/)) {
         return url;
     }
 

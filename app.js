@@ -25,18 +25,15 @@ const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowe
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // https://cloudinary.com/documentation/resizing_and_cropping#scale.
-hbs.registerHelper('cloudinaryResize', function(url, transform) {
+hbs.registerHelper('cloudinaryResize', function (url, transform) {
     if (typeof url === 'undefined' || !url) {
         return "";
     }
-
     if (url.indexOf('cloudinary.com') == -1) {
         return url
     }
-
     return url.replace(/image\/upload\/v[0-9]+/g, `image/upload/${transform}`);
 });
-
 // session configuration
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
@@ -52,7 +49,7 @@ app.use(
     })
 )
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.locals.session = req.session;
 
     next();

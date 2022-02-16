@@ -17,7 +17,8 @@ router.get("/new", (req, res, next) => {
 
 router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
     // get the values from request body. Create an object with keys.
-    const { url, name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body;
+    const { name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body;
+    const url = req.file.path
     const creater = req.session.user._id
     //create a new recipe in the db
     Recipe.create({ url, name, description, source, cooktime, servings, calories, ingredients, instructions, tags, creater })
@@ -35,10 +36,10 @@ router.get("/search", (req, res, next) => {
 
     let searchTerm = req.query.recipeTitle
 
-    Recipe.find( { 'name' : { '$regex' : ".*" + searchTerm + ".*", '$options' : 'i' } } )
+    Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } })
         .then(recipe => {
-        
-            res.render("recipe/search", {recipe})
+
+            res.render("recipe/search", { recipe })
         })
         .catch(err => next(err))
 })

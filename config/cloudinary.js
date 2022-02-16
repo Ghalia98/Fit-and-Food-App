@@ -1,5 +1,4 @@
 const cloudinary = require('cloudinary').v2
-const { cloudinaryStorage } = require('multer-storage-cloudinary')
 const multer = require('multer')
 const { CloudinaryStorage } = require('multer-storage-cloudinary')
 
@@ -17,6 +16,20 @@ const storage = new CloudinaryStorage({
     }
 })
 
+//create a new storage for recipe images
+// http://expressjs.com/en/resources/middleware/multer.html
+const storage2 = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'recipe-images',
+        allowed_formats: 'jpg, png'
+    }
+})
+
+const uploadRecipeImages = multer({ storage: storage2 })
 const uploader = multer({ storage })
 
-module.exports = uploader
+module.exports = {
+    uploader,
+    uploadRecipeImages
+}

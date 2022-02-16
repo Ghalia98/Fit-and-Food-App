@@ -68,4 +68,32 @@ router.get('/:id/delete', (req, res, next) => {
         .catch(err => next(err))
 })
 
+
+router.get(`/:id/edit`, (req, res, next) => {
+    const id = req.params.id
+    Recipe.findById(id)
+        .then(recipesFromDB => {
+            res.render('recipe/edit', {
+                recipe: recipesFromDB
+            })
+        })
+        .catch(err => next(err))
+})
+
+// edit recipes
+router.post('/:id', (req, res, next) => {
+    const id = req.params.id
+    const { name, ingredients, instructions, description, _id } = req.body
+    Recipe.findByIdAndUpdate(id, {
+        name, ingredients, instructions, description, _id
+    }, { new: true })
+        .then(updatedRecipe => {
+            res.redirect(`/${id}`)
+        })
+        .catch(err => next(err))
+})
+
+
+
+
 module.exports = router;

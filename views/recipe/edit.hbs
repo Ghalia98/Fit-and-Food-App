@@ -1,0 +1,67 @@
+<div class="container new-recipe">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1>Edit your recipe</h1>
+      {{!-- https://getbootstrap.com/docs/5.0/layout/columns/ --}}
+      {{!-- enctype must be added for file uploads --}}
+      {{#with}}
+      <form action="/recipe/{{_id}}" method="POST" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" name="url" required>
+          <label class="input-group-text" for="recipe-image">Upload your recipe photo</label>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" name="name" placeholder="Grandma's dumpling" value={{name}}>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea value={{description}}class="form-control" name="description" rows="3"
+            placeholder="Introduce us about your recipe - who inspired it, who you cooked it for, on which occasion you cooked or why it's special... "></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="source" class="form-label">Origin (optional)</label>
+          <input type="text" class="form-control" name="source" placeholder="get inspired from...">
+        </div>
+        <div class="mb-3">
+          <label for="cooktime" class="form-label">Cook time</label>
+          <input type="number" class="form-control" name="cooktime" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="servings" class="form-label">Servings</label>
+          <input type="number" class="form-control" name="servings" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="calories" class="form-label">Calories</label>
+          <input type="number" class="form-control" name="calories" placeholder="">
+        </div>
+        <div class="mb-3 ingredients-container">
+          <label for="ingredients" class="form-label">Ingredients</label>
+          <input type="text" class="form-control" name="ingredients" placeholder="250gr flour">
+          <input type="text" class="form-control" name="ingredients" placeholder="100ml milk">
+          <input type="text" class="form-control" name="ingredients" placeholder="250gr chicken breast">
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary add-ingredients" type="button">Add more ingredients</button>
+        </div>
+        <div class="mb-3 instruction-steps">
+          <label for="instructions" class="form-label">Instructions</label>
+          <textarea class="form-control" name="instructions" rows="3" placeholder="Step1"></textarea>
+          <textarea class="form-control" name="instructions" rows="3" placeholder="Step2"></textarea>
+          <textarea class="form-control" name="instructions" rows="3" placeholder="Step3"></textarea>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary add-steps" type="button">Add more steps</button>
+        </div>
+        <div class="mb-3">
+          <label for="tags" class="form-label">Tags</label>
+          <input type="text" class="form-control" name="tags" placeholder="">
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button class="btn btn-primary" type="submit">Edit your recipe</button>
+        </div>
+      </form>
+      {{/with}}
+    </div>
+  </div>
+</div>

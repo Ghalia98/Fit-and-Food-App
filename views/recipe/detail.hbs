@@ -1,11 +1,10 @@
 {{#with recipe}}
-
     <div class="recipe-card">
         <h1 class="recipe-name">{{name}}</h1>
         {{#if tags}}
         <h3>Tags: <span class="badge badge-pill badge-danger">{{tags}}</span></h3>
         {{/if}}
-        <span class="badge badge-primary">{{tags}}</span>
+        
         <img src="{{url}}" alt="Image of {{name}}" class="recipe-picture img-fluid">
         {{#if source}}
         <h3>Source: </h3><a href="{{source}}" target="_blank">{{source}}</a>

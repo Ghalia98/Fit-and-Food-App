@@ -49,9 +49,8 @@ h1 {
 }
 
 .recipe-picture {
-<<<<<<< HEAD
     width: 600px;
-    margin-bottom: 20px;;
+    margin-bottom: 20px;
 }
 
 .recipe-card{
@@ -61,10 +60,7 @@ h1 {
     align-items: center;
     border: 1px dashed black;
     padding-bottom: 20px;
-=======
-  width: 500px;
->>>>>>> a0ae8580ea80a2ed4dfacfd15f6eb08afc1ee5e4
-}
+} 
 
 .recipe-card h1,
 .recipe-card h3 {
@@ -139,7 +135,6 @@ input.search-input-field {
   text-align: center;
 }
 
-<<<<<<< HEAD
 .recipes-collection-div{
     display: flex;
     flex-wrap: wrap;
@@ -172,28 +167,6 @@ input.search-input-field {
     width: 270px;
     height: 420px;
     object-fit: cover;
-=======
-.recipes-in-search {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 25px 0px;
-  border-radius: 5px;
-  justify-content: center;
-}
-
-.recipe-info-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 270px;
-  margin: 15px 30px 0px 0px;
-}
-
-.recipe-info-box img {
-  width: 270px;
-  height: 420px;
-  object-fit: cover;
->>>>>>> a0ae8580ea80a2ed4dfacfd15f6eb08afc1ee5e4
 }
 
 .recipe-info-box a {
@@ -307,7 +280,6 @@ input.search-input-field {
   color: white;
 }
 
-<<<<<<< HEAD
 .profile-img{
     width: 150px;
     height: 150px;
@@ -322,9 +294,7 @@ input.search-input-field {
 }
 
 
-.user-name{
-   
-=======
+
 #image-container-login {
   padding: 0;
   margin: 0;
@@ -342,7 +312,6 @@ input.search-input-field {
 .bg-tint-login {
   position: relative;
   z-index: 1;
->>>>>>> a0ae8580ea80a2ed4dfacfd15f6eb08afc1ee5e4
 }
 
 .bg-tint-login::after {

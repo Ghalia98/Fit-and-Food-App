@@ -388,3 +388,7 @@ input.search-input-field {
 
 
 /*end of login-form style */
+
+.error-message {
+    color: red;
+}

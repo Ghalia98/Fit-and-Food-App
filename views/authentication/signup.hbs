@@ -9,8 +9,9 @@
 <input type="text" name="name" placeholder="Enter your full name"  id="name" class="form-control" required>
 </div>
 <div class="mb-2 col-11 input-group-sm">
-<label for="username" class="form-label">Username<span>*</span></label>
-<input type="text" name="username" placeholder="Enter your username"class="form-control" id="username" required>
+  <label for="InputEmail1" class="form-label">Email Address<span>*</span></label>
+    <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="example@address.com">
+    {{!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
 </div>
 
   <div class="mb-2 col-11 input-group-sm">
@@ -33,10 +34,8 @@
 <div class="col-6">
 
 <div  class="mb-2 col-11 input-group-sm">
-  <label for="InputEmail1" class="form-label">Email Address<span>*</span></label>
-    <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="example@address.com">
-    {{!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
-
+<label for="username" class="form-label">Username<span>*</span></label>
+<input type="text" name="username" placeholder="Enter your username"class="form-control" id="username" required>
 </div>
 {{!-- add an image input --}}
 <div class="mb-2 col-11 input-group-sm">
@@ -68,7 +67,7 @@
   <textarea placeholder="Type here.."class="form-control" id="FormControlTextarea1" rows="3"></textarea>
 </div>
 {{#if message}}
-<p>{{message}}</p>
+<p class="error-message">{{message}}</p>
 {{/if}}
 <button type="submit" class="btn btn-outline-danger btn-md btn-block" id="signup-btn">Create Account</button>
 <span>Already have an account? <a href="/auth/login"> Log in</a></span> 

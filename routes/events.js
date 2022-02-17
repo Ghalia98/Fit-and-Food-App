@@ -48,8 +48,7 @@ router.get("/search", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
     const id = req.params.id
     console.log(id)
-    Event.findById(id)
-        .populate('creater')
+    Event.findById(id).populate('creater')
         .then(event => {
             console.log(event)
             let showDelete;

@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Recipe = require("../models/Recipe");
+const Event = require("../models/Event");
 const User = require("../models/User")
 
 /* GET home page */
@@ -39,7 +40,15 @@ router.get('/profile', loginCheck(), (req, res, next) => {
         .then(() => {
             Recipe.find({ 'creater': user._id })
                 .then(userRecipes => {
-                    res.render('user/profile', { user, recipe: userRecipes })
+                    Event.find().populate('creater')
+                        .then(() => {
+                            Event.find({ 'creater': user._id })
+                                .then(userEvents => {
+                                    res.render('user/profile', { user, event: userEvents, recipe: userRecipes })
+                                    console.log('my event:', userEvents)
+                                })
+                        })
+                    // res.render('user/profile', { user, recipe: userRecipes })
                     console.log('my recipe:', userRecipes)
                 })
 

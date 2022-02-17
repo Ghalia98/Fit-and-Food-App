@@ -11,7 +11,12 @@ router.get('/signup', (req, res, next) => {
 router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
     const { name, username, password, email, gender, age, city } = req.body
     // res.send(req.body)
-    const imageUrl = req.file.path
+    let imageUrl;
+    // console.log(req.file.path)
+    if (req.file === undefined) {
+        imageUrl = "https://res.cloudinary.com/dsbunxd7x/image/upload/v1645114724/recipe-images/avatar_fyguuv.png"
+    } else { imageUrl = req.file.path }
+
     // is the password + 4 chars
     console.log(req.file)
     if (password.length < 4) {
@@ -51,6 +56,7 @@ router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
                 res.render('authentication/signup', { message: 'The email address you have entered is already registered' })
             }
         })
+        .catch(err => next(err))
 })
 
 router.get('/login', (req, res, next) => {

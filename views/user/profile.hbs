@@ -1,21 +1,26 @@
 
-<h1>Profile</h1>
+<div class="profile-body">
+    <h1>Profile</h1>
 
-{{#with user}}
-<img src="{{imageUrl}}" alt="Picture of {{name}}">
-<h3>{{name}}</h3>
-<h3>{{city}}</h3>
-<h3>{{age}}</h3>
-<p>{{intro}}</p>
-{{/with}}
+    {{#with user}}
+        <img src="{{imageUrl}}" alt="Picture of {{name}}" class="profile-img" >
+        <h3 class="user-name">{{name}}</h3>
+        <h3>{{city}}</h3>
+        <h3>{{age}}</h3>
+        <p>{{intro}}</p>
+    {{/with}}
 
 
-<h2>My Recipes</h2>
-{{#each recipe}}
-<h3>name: {{name}}</h1>
-<h4>description: {{description}}</h1>
-<h4>cooktime: {{cooktime}}</h1>
-<h4>servings: {{servings}}</h1>
-<img src="{{url}}" alt="picture of {{name}}">
-<a href="/recipe/{{_id}}/delete">Delete {{name}}</a>
-{{/each}}
+    <h2>My Recipes</h2>
+    <div class="recipes-collection-div">
+    {{#each recipe}}
+
+        <div class="recipe-info-box">
+            <img src="{{cloudinaryResize this.url "c_fill,w_400,h_225"}}" alt="image of {{name}}" class="img-fluid">
+            <a href="/recipe/{{id}}">{{name}}</a>
+        </div>
+
+    {{/each}}
+    </div>
+</div>
+

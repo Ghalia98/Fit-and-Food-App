@@ -41,9 +41,9 @@ router.get("/search", (req, res, next) => {
 
     let searchTerm = req.query.recipeTitle
 
-    Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } })
+    Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } }).populate('creater')
         .then(recipe => {
-            
+            console.log(recipe.creater)
             res.render("recipe/search", {recipe, searchTerm})
         })
         .catch(err => next(err))

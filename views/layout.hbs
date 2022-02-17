@@ -26,18 +26,18 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/"><button class="nav-btn">Home</button></a></li>
                         <li class="nav-item"><a class="nav-link" href="/recipe/search?recipeTitle="><button class="nav-btn">Recipes</button></a></li>
                         <li class="nav-item"><a class="nav-link" href="#"><button class="nav-btn">Food facts</button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><button class="nav-btn">Food events</button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/event/search?eventTitle="><button class="nav-btn">Food events</button></a></li>
                      </ul>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                            {{#if session.user}}
                               <div class="dropdown open">
                                  <button class="btn btn-primary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi {{session.user.name}}!</button>
-                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="triggerId">
-                                    <a href="/profile"><button class="dropdown-item navbar-user">My profile</button></a>
-                                    <a href="#"><button class="dropdown-item navbar-user">My messages</button></a>
-                                    <a href="/recipe/new"><button class="dropdown-item navbar-user">Create a new recipe</button></a>
-                                    <a href="/event/new"><button class="dropdown-item navbar-user">Create a new event</button></a>
-                                    <a href="/auth/logout"><button class="dropdown-item navbar-user">Sign out</button></a>
+                                 <div class="dropdown-menu dropdown-menu-end navbar-user" aria-labelledby="triggerId">
+                                    <a href="/profile"><button class="dropdown-item">My profile</button></a>
+                                    <a href="#"><button class="dropdown-item">My messages</button></a>
+                                    <a href="/recipe/new"><button class="dropdown-item">Create a new recipe</button></a>
+                                    <a href="/event/new"><button class="dropdown-item">Create a new event</button></a>
+                                    <a href="/auth/logout"><button class="dropdown-item">Sign out</button></a>
                                  </div>
                               </div>
                            {{else}}

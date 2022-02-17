@@ -22,5 +22,15 @@
 
     {{/each}}
     </div>
-</div>
 
+     <h2>My Events</h2>
+    <div class="recipes-collection-div">
+    {{#each event}}
+        <div class="recipe-info-box">
+            <img src="{{cloudinaryResize this.img "c_fill,w_400,h_225"}}" alt="Image of the {{title}} event" class="img-fluid">
+            <a href="/event/{{id}}">{{title}}</a>
+        </div>
+    {{/each}}
+    </div>
+
+</div>

@@ -8,6 +8,7 @@ mongoose.connect(connectionString)
 
 const Recipe = require('./models/Recipe')
 const User = require('./models/User')
+const Event = require('./models/Event')
 
 
 const recipes = [{
@@ -520,6 +521,13 @@ const users = [{
 Recipe.insertMany(recipes)
     .then(recipes => {
         console.log(`Success - added ${recipes.length} recipes to the db`)
+        mongoose.connection.close()
+    })
+    .catch(err => console.log(err))
+
+Event.insertMany(events)
+    .then(event => {
+        console.log(`Success - added ${event.length} events to the db`)
         mongoose.connection.close()
     })
     .catch(err => console.log(err))

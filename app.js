@@ -25,7 +25,7 @@ const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowe
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // https://cloudinary.com/documentation/resizing_and_cropping#scale.
-hbs.registerHelper('cloudinaryResize', function (url, transform) {
+hbs.registerHelper('cloudinaryResize', function(url, transform) {
     if (typeof url === 'undefined' || !url) {
         return "";
     }
@@ -34,6 +34,11 @@ hbs.registerHelper('cloudinaryResize', function (url, transform) {
     }
     return url.replace(/image\/upload\/v[0-9]+/g, `image/upload/${transform}`);
 });
+
+hbs.registerHelper('dateNow', () => {
+    return (new Date()).toISOString().slice(0, 10);
+})
+
 // session configuration
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
@@ -49,7 +54,7 @@ app.use(
     })
 )
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     res.locals.session = req.session;
 
     next();
@@ -65,6 +70,9 @@ app.use("/recipe", recipes);
 
 const auth = require("./routes/auth");
 app.use("/auth", auth);
+
+const events = require("./routes/events");
+app.use("/event", events);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

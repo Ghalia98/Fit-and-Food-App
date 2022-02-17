@@ -5,6 +5,9 @@ body {
     height: 100vh;
 }
 
+
+/* start point of styling the homepage */
+
 .btn-primary {
     color: #fff;
     background-color: chocolate;
@@ -23,7 +26,7 @@ body {
     border-radius: 20px;
 }
 
-a .navbar-user {
+.navbar-user a {
     background-color: bisque;
     color: black;
     text-decoration: none;
@@ -192,7 +195,36 @@ footer {
 }
 
 
+<<<<<<< Updated upstream
 /* search and recipes display in user profile related styling starts */
+=======
+/* end point of styling the homepage */
+
+
+/* start point of styling the event search page */
+
+.search-all-event {
+    margin: 1em;
+    border: 1px ridge black;
+    border-radius: 10px;
+    /* justify-content: center; */
+}
+
+.search-page {
+    width: 50vw;
+}
+
+.search-event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 270px;
+    margin: 2em
+}
+
+
+/* end point of styling the event search page */
+>>>>>>> Stashed changes
 
 .search-bar {
     margin: 4em;

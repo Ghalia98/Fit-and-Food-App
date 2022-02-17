@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const User = require("../models/User");
 const Event = require("../models/Event");
-const { uploadEventImages } = require('../config/cloudinary');
+const { uploader, uploadRecipeImages, cloudinary, uploadEventImages } = require('../config/cloudinary');
 
-//user want to add a new event
+//Create a new Event
 router.get("/new", (req, res, next) => {
     console.log(req.session);
     User.find({})
@@ -18,7 +18,6 @@ router.post('/new', uploadEventImages.single('img'), (req, res, next) => {
     const img = req.file.path
     const creater = req.session.user._id
     const publicId = req.file.filename
-        //create a new event in the db
     Event.create({ img, publicId, title, creater, startDate, startTime, endTime, location, description, tags })
         .then(eventFromDB => {
             console.log(eventFromDB)
@@ -30,15 +29,30 @@ router.post('/new', uploadEventImages.single('img'), (req, res, next) => {
         })
 });
 
+
+// search Event
+router.get("/search", (req, res, next) => {
+    let searchTerm = req.query.eventTitle
+
+    Event.find({ 'title': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } }).populate('creater')
+        // https://docs.mongodb.com/manual/reference/method/cursor.sort/#ascending-descending-sort
+        .sort({ startDate: 1, startTime: 1 })
+        .then(event => {
+            res.render("event/search", { event, searchTerm })
+        })
+        .catch(err => next(err))
+})
+
+
 //Event details page
 router.get("/:id", (req, res, next) => {
     const id = req.params.id
     console.log(id)
     Event.findById(id)
         .populate('creater')
-        .then(eventfromDB => {
-            console.log(eventfromDB)
-            res.render("event/details", { event: eventfromDB })
+        .then(event => {
+            console.log(event)
+            res.render("event/details", { event: event })
         })
         .catch(err => next(err))
 })
@@ -57,16 +71,16 @@ router.get('/:id/edit', (req, res, next) => {
 // edit recipes
 router.post('/:id', uploadEventImages.single('img'), (req, res, next) => {
     const id = req.params.id
-        // const img = req.file.path
-        // const publicId = req.file.filename
+    const img = req.file.path
+    const publicId = req.file.filename
     const { title, startDate, startTime, endTime, location, description, tags } = req.body;
 
-    Event.findByIdAndUpdate(id, { title, startDate, startTime, endTime, location, description, tags })
+    Event.findByIdAndUpdate(id, { img, publicId, title, startDate, startTime, endTime, location, description, tags })
         .then(event => {
             console.log("this is the changed event", event)
-                // if (event.img) {
-                //     cloudinary.uploader.destroy(event.publicId)
-                // }
+            if (event.img) {
+                cloudinary.uploader.destroy(event.publicId)
+            }
             res.redirect('/event/' + event._id)
         })
         .catch(err => next(err))
@@ -80,9 +94,9 @@ router.get('/:id/delete', (req, res, next) => {
     Event.findByIdAndRemove(id, { title, startDate, startTime, endTime, location, description, tags })
         .then(event => {
             console.log("this is the removed event", event)
-                // if (event.img) {
-                //     cloudinary.uploader.destroy(event.publicId)
-                // }
+            if (event.img) {
+                cloudinary.uploader.destroy(event.publicId)
+            }
             res.redirect('/')
         })
         .catch(err => next(err))

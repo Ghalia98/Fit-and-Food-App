@@ -10,8 +10,10 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
     const { name, username, password, email, gender, age, city } = req.body
+    let imageUrl;
+    // let imageUrl = req.file.path
     // res.send(req.body)
-    const imageUrl = req.file.path
+    // const imageUrl = req.file.path
     // is the password + 4 chars
     console.log(req.file)
     if (password.length < 4) {
@@ -22,6 +24,7 @@ router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
         res.render('authentication/signup', { message: 'Your username cannot be empty' })
         return
     }
+
     // validation passed
     // do we already have a user with that username in the db?
     User.findOne({ username: username })
@@ -34,9 +37,16 @@ router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
                 // and hash the password
                 const salt = bcrypt.genSaltSync()
                 const hash = bcrypt.hashSync(password, salt)
+
                 // create the user
                 User.create({ name, username, password: hash, email, gender, age, city, imageUrl })
                     .then(createdUser => {
+
+                        if (createdUser.imageUrl) {
+                            createdUser.imageUrl = req.file.path
+                        } else {
+                            imageUrl = "/images/user-images/avatar.png"
+                        }
                         console.log(createdUser)
                         res.redirect('/auth/login')
                     })

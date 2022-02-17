@@ -28,7 +28,8 @@ router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
         .then(userFromDB => {
             if (userFromDB !== null) {
                 res.render('authentication/signup', { message: 'Username is already taken' })
-            } else {
+            }
+            else {
                 // we can use that username
                 // and hash the password
                 const salt = bcrypt.genSaltSync()
@@ -43,7 +44,13 @@ router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
             }
         })
 
-
+    // add condition to check if email is already registered
+    User.findOne({ email })
+        .then(userFromDB => {
+            if (userFromDB !== null) {
+                res.render('authentication/signup', { message: 'The email address you have entered is already registered' })
+            }
+        })
 })
 
 router.get('/login', (req, res, next) => {

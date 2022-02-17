@@ -49,18 +49,18 @@ h1 {
 }
 
 .recipe-picture {
-  width: 600px;
-  margin-bottom: 20px;
+    width: 600px;
+    margin-bottom: 20px;
 }
 
-.recipe-card {
-  margin: 20px 200px 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px dashed black;
-  padding-bottom: 20px;
-}
+.recipe-card{
+    margin: 20px 200px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dashed black;
+    padding-bottom: 20px;
+} 
 
 .recipe-card h1,
 .recipe-card h3 {
@@ -135,12 +135,12 @@ input.search-input-field {
   text-align: center;
 }
 
-.recipes-collection-div {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 25px 0px;
-  border-radius: 5px;
-  justify-content: center;
+.recipes-collection-div{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px 0px;
+    border-radius: 5px;
+    justify-content: center;
 }
 
 .recipe-info-box p {
@@ -300,11 +300,11 @@ input.search-input-field {
   color: white;
 }
 
-.profile-img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
+.profile-img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .profile-body {

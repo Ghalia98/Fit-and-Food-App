@@ -56,6 +56,7 @@ router.post('/signup', uploader.single('imageUrl'), (req, res, next) => {
                 res.render('authentication/signup', { message: 'The email address you have entered is already registered' })
             }
         })
+        .catch(err => next(err))
 })
 
 router.get('/login', (req, res, next) => {

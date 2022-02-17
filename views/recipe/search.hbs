@@ -6,13 +6,16 @@
     </form>
 </div>
 
-<div class="recipes-in-search">
+<div class="recipes-collection-div">
 {{#each recipe}}
 
     <div class="recipe-info-box">
-        <img src="{{url}}" alt="image of {{name}}" class="img-fluid">
+        <img src="{{url}}" alt="image of {{name}}" class="img-fluid recipe-info-img">
         <a href="/recipe/{{id}}">{{name}}</a>
-
+        {{#with creater}}
+            <span><img src="{{imageUrl}}" class="creater-img-icon">{{name}}</span>
+            
+        {{/with}}
     </div>
 
 {{/each}}

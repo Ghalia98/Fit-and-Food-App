@@ -52,10 +52,32 @@ h1 {
 
 /* For the details page below */
 
+.delete-icon{
+    position: absolute;
+    right: 70px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
+.edit-icon{
+    position: absolute;
+    right: 200px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+  
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
 .recipe-name {
-  font-weight: bold;
-  margin: 30px;
-  font-size: 40px;
+    font-weight: bold;
+    margin: 30px 0px 5px 0px;
+    font-size: 40px;
 }
 
 .recipe-picture {
@@ -66,12 +88,13 @@ h1 {
 }
 
 .recipe-card {
-  margin: 60px 200px 0px;
-  display: flex;
-  flex-direction: column;
-  border: 1px dashed black;
-  padding: 20px 100px;
-  font-family: "Marcellus", serif;
+    position: relative;
+    margin: 60px 200px 0px;
+    display: flex;
+    flex-direction: column;
+    border: 1px dashed black;
+    padding: 20px 100px;
+    font-family: "Marcellus", serif;
 }
 
 .center-align {
@@ -201,8 +224,6 @@ footer {
   margin-top: 10em;
 }
 
-/* search and recipes display in user profile related styling starts */
-
 /* end point of styling the homepage */
 
 /* start point of styling the event search page */
@@ -227,6 +248,9 @@ footer {
 }
 
 /* end point of styling the event search page */
+
+/* search and recipes display in user profile related styling starts */
+
 .search-bar {
   margin: 4em;
   display: flex;
@@ -257,10 +281,10 @@ input.search-input-field {
 }
 
 .creater-img-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 30px;
-  object-fit: cover;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    object-fit: cover;
 }
 
 .recipe-info-img {
@@ -269,31 +293,26 @@ input.search-input-field {
   object-fit: cover;
 }
 
-.recipes-in-search {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 25px 0px;
-  border-radius: 5px;
-  justify-content: center;
-}
-
 .recipe-info-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 270px;
-  margin: 15px 30px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 270px;
+    margin: 15px 30px 0px 0px;
 }
 
-.recipe-name-on-search {
-  text-decoration: none;
-  color: black;
-  font-size: 20px;
-  margin-top: 10px;
-  padding: 10px;
-  margin: 20px;
-  text-align: center;
-  font-weight: bold;
+.recipe-info-box > a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.creater-name{
+    font-size: 13px;
 }
 
 /* search and recipes display in user profile styling ends */

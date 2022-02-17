@@ -45,7 +45,7 @@ router.get("/search", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
     const id = req.params.id
     //console.log(id)
-    Recipe.findById(id)
+    Recipe.findById(id).populate('creater')
         .then(recipe => {
             //console.log(recipe)
             let showDelete;

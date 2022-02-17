@@ -1,7 +1,15 @@
 {{#with recipe}}
     <div class="recipe-card">
+        {{#if ../showDelete}}
+        <a href="/recipe/{{_id}}/edit" class="edit-icon">Edit <i class="bi bi-pencil-square"></i></a>
+        <a href="/recipe/{{_id}}/delete" class="delete-icon">Delete <i class="bi bi-trash-fill"></i></a>
+        {{/if}}
+        
         <div class="center-align">
             <h1 class="recipe-name">{{name}}</h1>
+            {{#with creater}}
+            <h5>-By <a href="/profile/{{_id}}">{{name}}</a></h5>
+            {{/with}}
 
             <div class="recipe-tags">
                 {{#each tags}}
@@ -10,6 +18,7 @@
                     {{/if}}
                 {{/each}}
             </div>
+            
             
             <img src="{{url}}" alt="Image of {{name}}" class="recipe-picture img-fluid">
         
@@ -68,9 +77,6 @@
         {{/if}}
 
     </div>
-  {{#if ../showDelete}}
-<a href="/recipe/{{_id}}/edit">Edit {{name}}</a>
-<a href="/recipe/{{_id}}/delete">Delete {{name}}</a>
- {{/if}}
+  
 {{/with}}
     

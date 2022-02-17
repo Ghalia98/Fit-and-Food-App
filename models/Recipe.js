@@ -29,6 +29,7 @@ const recipeSchema = new Schema({
         type: String,
         required: true
     },
+    publicId: String,
     tags: [String]
 });
 

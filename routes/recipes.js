@@ -48,7 +48,9 @@ router.get("/:id", (req, res, next) => {
     Recipe.findById(id)
         .then(recipe => {
             //console.log(recipe)
-            res.render("recipe/detail", { recipe: recipe })
+            const showDelete = req.session.user._id === recipe.creater.toString()
+            console.log(showDelete)
+            res.render("recipe/detail", { recipe: recipe, showDelete })
         })
         .catch(err => next(err))
 })
@@ -79,29 +81,24 @@ router.post('/:id', uploadRecipeImages.single('url'), (req, res, next) => {
         })
         .catch(err => next(err))
 })
-router.get('/:id/delete', (req, res, next) => {
+router.get('/:id/delete', uploadRecipeImages.single('url'), (req, res, next) => {
     const id = req.params.id
     const user = req.session.user
-    // if(req.session.user._id ===)
-    if (req.session.user) {
-        Recipe.find().populate('creater')
-            .then(() => {
-                Recipe.find({ 'creater': req.session.user._id })
-                    .then(isUserRecipe => {
-                        if (isUserRecipe) {
-                            Recipe.findByIdAndDelete(id)
-                                .then(recipeFromDB => {
-
-                                    res.render('user/profile', { user })
-                                })
-                                .catch(err => next(err))
-                        } else {
-                            res.render("recipe/detail", { recipe: isUserRecipe })
+    Recipe.findById(id)
+        .then(recipeFromDB => {
+            console.log(recipeFromDB.creater.toString())
+            if (user._id === recipeFromDB.creater.toString()) {
+                Recipe.findByIdAndDelete(id)
+                    .then(recipeFromDB => {
+                        if (recipeFromDB.url) {
+                            cloudinary.uploader.destroy(recipeFromDB.publicId)
                         }
+
                     })
-            })
-    } else {
-        res.redirect(`/recipe/${id}`)
-    }
+                    .catch(err => next(err))
+                console.log(recipeFromDB)
+                res.redirect('/profile')
+            }
+        })
 })
 module.exports = router;

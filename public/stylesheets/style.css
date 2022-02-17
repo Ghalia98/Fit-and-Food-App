@@ -59,9 +59,31 @@ h1 {
 
 /* For the details page below */
 
+.delete-icon{
+    position: absolute;
+    right: 70px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
+.edit-icon{
+    position: absolute;
+    right: 200px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+  
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
 .recipe-name {
     font-weight: bold;
-    margin: 30px;
+    margin: 30px 0px 5px 0px;
     font-size: 40px;
 }
 
@@ -73,6 +95,7 @@ h1 {
 }
 
 .recipe-card {
+    position: relative;
     margin: 60px 200px 0px;
     display: flex;
     flex-direction: column;
@@ -194,8 +217,6 @@ footer {
     margin-top: 10em;
 }
 
-
-/* search and recipes display in user profile related styling starts */
 /* end point of styling the homepage */
 
 
@@ -222,6 +243,8 @@ footer {
 
 
 /* end point of styling the event search page */
+
+/* search and recipes display in user profile related styling starts */
 
 .search-bar {
     margin: 4em;
@@ -261,8 +284,8 @@ input.search-input-field {
 }
 
 .creater-img-icon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 30px;
     object-fit: cover;
 }
@@ -281,34 +304,19 @@ input.search-input-field {
     margin: 15px 30px 0px 0px;
 }
 
-.recipe-info-box img {
-    width: 270px;
-    height: 420px;
-    object-fit: cover;
-}
-
-.recipe-info-box a {
+.recipe-info-box > a {
     text-decoration: none;
     color: black;
     font-size: 20px;
     margin-top: 10px;
     padding: 10px;
-    margin: 20px;
     text-align: center;
     font-weight: bold;
 }
 
-.recipe-name-on-search {
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-    margin-top: 10px;
-    padding: 10px;
-    margin: 20px;
-    text-align: center;
-    font-weight: bold;
+.creater-name{
+    font-size: 13px;
 }
-
 
 /* search and recipes display in user profile styling ends */
 

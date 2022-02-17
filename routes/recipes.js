@@ -53,7 +53,7 @@ router.get("/:id", (req, res, next) => {
                 showDelete = false
             }
             else {
-                showDelete = req.session.user._id === recipe.creater.toString()
+                showDelete = req.session.user._id == recipe.creater._id
                 console.log(showDelete)
             }
             res.render("recipe/detail", { recipe: recipe, showDelete })

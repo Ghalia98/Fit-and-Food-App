@@ -7,9 +7,9 @@ router.get("/", (req, res, next) => {
     // https://docs.mongodb.com/manual/reference/operator/aggregation/sample/
     //random recipe on homepage
     Promise.all([
-            Recipe.aggregate([{ '$sample': { size: 5 } }]),
-            Recipe.aggregate([{ '$sample': { size: 4 } }])
-        ])
+        Recipe.aggregate([{ '$sample': { size: 5 } }]),
+        Recipe.aggregate([{ '$sample': { size: 4 } }])
+    ])
         .then(([featureRecipes, gridRecipes]) => {
             res.render('index', { featureRecipes, gridRecipes, doctitle: 'Homepage' })
         })
@@ -33,8 +33,8 @@ function loginCheck() {
 router.get('/profile', loginCheck(), (req, res, next) => {
     const user = req.session.user
     console.log('usermeee', user)
-        // so bascially the populate method only works on the find method
-        // which is why I had to find all the recipes first then populate, then query the result with the current user id.
+    // so bascially the populate method only works on the find method
+    // which is why I had to find all the recipes first then populate, then query the result with the current user id.
     Recipe.find().populate('creater')
         .then(() => {
             Recipe.find({ 'creater': user._id })

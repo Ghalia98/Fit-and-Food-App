@@ -1,11 +1,29 @@
-<h1>Log in</h1>
-<form action="/auth/login" method="post">
-<label for="username">Username:</label>
-<input type="text" name="username" id="username">
-<label for="password">Password:</label>
-<input type="password" name="password" id="password">
-<button type="submit">Log in</button>
+<div class="form-container container col-8">
+    <div class="row">
+        <div class="col bg-tint-login" id="image-container-login" >
+  <div id="text-on-pic"><h1>Log in</h1></div>
+  <img src="/images/auth-images/login-cover_3.jpg" alt="A cover picture of the form" id="cover-img"  >
+</div>
+<form action="/auth/login" method="post"  class="col" id="signup-form">
+<div class="mb-2 col-11 input-group-md">
+<label for="username" class="form-label">Username<span>*</span></label>
+<input type="text" name="username" id="username" class="form-control" placeholder="Enter your username" required>
+</div>
+<div class="mb-2 col-11 input-group-md">
+<label for="password" class="form-label">Password<span>*</span></label>
+<input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
+</div>
 {{#if message}}
 <p>{{message}}</p>
 {{/if}}
+
+
+<button type="submit" class="btn btn-block btn-outline-danger btn-md btn-block" id="login-btn">Log in</button>
+<div id="span-container">
+<span>Don't have an account? <a href="/auth/signup"> Sign up</a></span> 
+</div>
 </form>
+
+
+</div>
+</div>

@@ -1,0 +1,16 @@
+{{#with event}}
+
+<img src="{{img}}" alt="Image of the {{title}} event">
+<h1>{{title}}</h1>
+<p>Created by {{creater.name}}</p>
+<h3>Date and Time:</h3>
+<h4>{{startDate}}</h4>
+<h4>{{startTime}} - {{endTime}}</h4>
+<h3>This event will be organized in {{Location}}</h3>
+<h4>{{description}}</h4>
+<h3>{{tags}}</h3>
+
+<a href="/event/{{_id}}/delete"><button type="submit">Delete</button></a>
+<a href="/event/{{_id}}/edit"><button type="submit">Edit</button></a>
+
+{{/with}}

@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 align-self-center">
+            <h1>Create your Event 🥳</h1>
+            <form action="/event/new" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="img" class="form-label">Upload your event photo (optional)</label>
+                    <input type="file" class="form-control" name="img">
+                </div>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Event Title<span>*</span></label>
+                    <input type="text" class="form-control" name="title" placeholder="Name your event" required>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-6">
+                        <label for="startDate" class="form-label">Start Date<span>*</span></label>
+                        <input type="date" class="form-control start-date" name="startDate" min="{{dateNow}}" pattern="\d{4}-\d{2}-\d{2}" required>
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-6">
+                        <label for="startTime" class="form-label">Start Time<span>*</span></label>
+                        <input type="time" class="form-control" name="startTime" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="endTime" class="form-label">End Time</label>
+                        <input type="time" class="form-control" name="endTime">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location(city)<span>*</span></label>
+                    <select class="form-control" name="location" required>
+                        <option>Berlin</option>
+                        <option>Frankfurt</option>
+                        <option>Hamburg</option>
+                        <option>Munich</option>
+                        <option>Others</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description<span>*</span></label>
+                    <textarea class="form-control" name="description" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="tags" class="form-label">Tags</label>
+                    <input type="text" class="form-control" name="tags" data-role="tagsinput">
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary" type="submit">Add a new event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

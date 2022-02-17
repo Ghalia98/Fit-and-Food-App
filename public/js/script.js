@@ -14,7 +14,6 @@ document.addEventListener(
 
             instructionSteps.appendChild(htmlToElement(`<textarea class="form-control" name="instructions" rows="3" placeholder="Add next steps"></textarea>`));
         })
-
     },
     false);
 

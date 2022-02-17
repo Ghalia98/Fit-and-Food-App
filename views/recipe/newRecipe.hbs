@@ -6,7 +6,6 @@
       {{!-- enctype must be added for file uploads --}}
       <form action="/recipe/new" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
-          {{!-- <label class="input-group-text" for="recipe-image">Upload your recipe photo</label> --}}
           <label for="recipe-image" class="form-label">Upload your recipe photo<span>*</span></label>
           <input type="file" class="form-control" name="url" required>
         </div>
@@ -16,23 +15,26 @@
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description<span>*</span></label>
-          <textarea class="form-control" name="description" rows="3" placeholder="Introduce us about your recipe" required></textarea>
+          <textarea class="form-control" name="description" rows="3" placeholder="Introduce us about your recipe"
+            required></textarea>
         </div>
         <div class="mb-3">
           <label for="source" class="form-label">Origin</label>
           <input type="text" class="form-control" name="source" placeholder="get inspired from...">
         </div>
-        <div class="mb-3">
-          <label for="cooktime" class="form-label">Cooktime (mins)<span>*</span></label>
-          <input type="number" min="0" class="form-control" name="cooktime" required>
-        </div>
-        <div class="mb-3">
-          <label for="servings" class="form-label">Servings (people)<span>*</span></label>
-          <input type="number" min="0" step="1" class="form-control" name="servings" required>
-        </div>
-        <div class="mb-3">
-          <label for="calories" class="form-label">Calories (kcal)</label>
-          <input type="number" min="0" step="1" class="form-control" name="calories">
+        <div class="row g-2">
+          <div class="col-md-4">
+            <label for="cooktime" class="form-label">Cooktime (mins)<span>*</span></label>
+            <input type="number" min="0" class="form-control" name="cooktime" required>
+          </div>
+          <div class="col-md-4">
+            <label for="servings" class="form-label">Servings (people)<span>*</span></label>
+            <input type="number" min="0" step="1" class="form-control" name="servings" required>
+          </div>
+          <div class="col-md-4">
+            <label for="calories" class="form-label">Calories (kcal)</label>
+            <input type="number" min="0" step="1" class="form-control" name="calories">
+          </div>
         </div>
         <div class="mb-3 ingredients-container">
           <label for="ingredients" class="form-label">Ingredients<span>*</span></label>
@@ -40,17 +42,17 @@
           <input type="text" class="form-control" name="ingredients" placeholder="100ml milk">
           <input type="text" class="form-control" name="ingredients" placeholder="250gr chicken breast">
         </div>
-          <button class="btn btn-primary add-ingredients add-more-row" type="button">Add more ingredients</button>
+        <button class="btn btn-primary add-ingredients add-more-row" type="button">Add more ingredients</button>
         <div class="mb-3 instruction-steps">
           <label for="instructions" class="form-label">Instructions<span>*</span></label>
           <textarea class="form-control" name="instructions" rows="2" placeholder="Step1" required></textarea>
           <textarea class="form-control" name="instructions" rows="2" placeholder="Step2"></textarea>
           <textarea class="form-control" name="instructions" rows="2" placeholder="Step3"></textarea>
         </div>
-          <button class="btn btn-primary add-steps add-more-row" type="button">Add more steps</button>
+        <button class="btn btn-primary add-steps add-more-row" type="button">Add more steps</button>
         <div class="mb-3">
           <label for="tags" class="form-label">Tags</label>
-          <input type="text" class="form-control" name="tags">
+          <input type="text" class="form-control" name="tags" data-role="tagsinput">
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
           <button class="btn btn-primary" type="submit">Add a new recipe</button>

@@ -9,12 +9,17 @@
     </div>
 
     <div class="recipes-collection-div">
+        <div class="search-event-details img-fluid search-create-event">
+         <a href="/event/new"><button class="read-more-event">Create an Event</button></a>
+    </div>
         {{#each event}}
         <div class="search-event-details">
             <a href="/event/{{id}}"><img src="{{cloudinaryResize img "c_fill,w_400,h_300"}}" alt="image of {{title}}" class="img-fluid"></a>
-            <h3>Location:{{Location}}</h3>
-            <h2><a href="/event/{{id}}">{{title}}</a></h2>
-            <a href="/event/{{id}}"><button>Find Out More</button></a>
+             <h2><a href="/event/{{id}}">{{title}}</a></h2>
+             <p>⏰{{startDate}}, {{startTime}} - {{endTime}}</p>
+             <h6>📍 {{Location}}</h6>
+            <a href="/event/{{id}}"><button class="read-more-event">Find Out More</button></a>
+
         </div>
 
         {{/each}}

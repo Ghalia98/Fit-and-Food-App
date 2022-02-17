@@ -15,8 +15,7 @@
       <div id="homepage-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           {{#each featureRecipes}}
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{@index}}" {{#unless
-            @index}}class="active" aria-current="true" {{/unless}} aria-label="{{this.name}}"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{@index}}" {{#unless @index}}class="active" aria-current="true" {{/unless}} aria-label="{{this.name}}"></button>
           {{/each}}
         </div>
         <div class="carousel-inner">

@@ -20,7 +20,7 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
     const { name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body;
     const url = req.file.path
     const creater = req.session.user._id
-        //filter the empty inputs
+    //filter the empty inputs
     const filteredIngredients = ingredients.filter((ingredient) => ingredient.length > 0)
     const filteredInstructions = instructions.filter((step) => step.length > 0)
 
@@ -43,8 +43,13 @@ router.get("/search", (req, res, next) => {
 
     Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } }).populate('creater')
         .then(recipe => {
+<<<<<<< HEAD
             console.log(recipe.creater)
             res.render("recipe/search", {recipe, searchTerm})
+=======
+
+            res.render("recipe/search", { recipe, searchTerm })
+>>>>>>> a0ae8580ea80a2ed4dfacfd15f6eb08afc1ee5e4
         })
         .catch(err => next(err))
 })
@@ -64,11 +69,28 @@ router.get("/:id", (req, res, next) => {
 
 router.get('/:id/delete', (req, res, next) => {
     const id = req.params.id
-    Recipe.findByIdAndDelete(id)
-        .then(() => {
-            res.redirect('/profile')
-        })
-        .catch(err => next(err))
+    const user = req.session.user
+    // if(req.session.user._id ===)
+    if (req.session.user) {
+        Recipe.find().populate('creater')
+            .then(() => {
+                Recipe.find({ 'creater': req.session.user._id })
+                    .then(isUserRecipe => {
+                        if (isUserRecipe) {
+                            Recipe.findByIdAndDelete(id)
+                                .then(recipeFromDB => {
+
+                                    res.render('user/profile', { user })
+                                })
+                                .catch(err => next(err))
+                        } else {
+                            res.render("recipe/detail", { recipe: isUserRecipe })
+                        }
+                    })
+            })
+    } else {
+        res.redirect(`/recipe/${id}`)
+    }
 })
 
 module.exports = router;

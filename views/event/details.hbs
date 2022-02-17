@@ -2,7 +2,8 @@
 
 <div>
     <h1>{{title}}</h1>
-    <p>Created by {{creater.name}}</p>
+    {{!-- <p>Created by {{creater.name}}</p> --}}
+    <span>-By <a href="/profile/{{creater._id}}">{{creater.name}}</a></span>
     <img src="{{cloudinaryResize this.img "c_fill,w_500,h_400"}}" alt="Image of the {{title}} event">
     <div>
         <h6>Date: {{startDate}}</h6>
@@ -13,9 +14,12 @@
     </div>
 
     <div>
+        {{#if ../showDelete}}
         <a href="/event/{{_id}}/delete"><button type="submit">Delete</button></a>
         <a href="/event/{{_id}}/edit"><button type="submit">Edit</button></a>
+        {{/if}}
     </div>
 </div>
 
 {{/with}}
+{{!-- <span>-By <a href="/profile/{{_id}}">{{name}}</a></span> --}}

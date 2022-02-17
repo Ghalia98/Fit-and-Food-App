@@ -1,12 +1,7 @@
 const router = require("express").Router();
 const Recipe = require("../models/Recipe");
 const User = require("../models/User");
-const { uploadRecipeImages } = require('../config/cloudinary');
-const { uploader } = require('../config/cloudinary')
-
-const cloudinary = require('cloudinary').v2;
-
-
+const { uploader, uploadRecipeImages, cloudinary } = require('../config/cloudinary');
 //user want to add a new recipe
 router.get("/new", (req, res, next) => {
     console.log(req.session);
@@ -17,7 +12,6 @@ router.get("/new", (req, res, next) => {
         })
         .catch(err => next(err))
 })
-
 router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
     // get the values from request body. Create an object with keys.
     const { name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body;
@@ -27,12 +21,10 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
     //filter the empty inputs
     const filteredIngredients = ingredients.filter((ingredient) => ingredient.length > 0)
     const filteredInstructions = instructions.filter((step) => step.length > 0)
-
     //create a new recipe in the db
     Recipe.create({ url, publicId, name, description, source, cooktime, servings, calories, ingredients: filteredIngredients, instructions: filteredInstructions, tags, creater })
         .then(recipeFromDB => {
             console.log(recipeFromDB)
-            //console.log(recipeFromDB.url)
             res.redirect('/recipe/' + recipeFromDB._id)
         })
         .catch(err => {
@@ -40,42 +32,24 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
             res.render('recipe/newRecipe')
         })
 });
-
 router.get("/search", (req, res, next) => {
-
     let searchTerm = req.query.recipeTitle
-
     Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } })
         .then(recipe => {
-
-            res.render("recipe/search", { recipe, searchTerm })
+            res.render("recipe/search", { recipe })
         })
         .catch(err => next(err))
 })
-
-
-
 router.get("/:id", (req, res, next) => {
     const id = req.params.id
-    console.log(id)
+    //console.log(id)
     Recipe.findById(id)
         .then(recipe => {
+            //console.log(recipe)
             res.render("recipe/detail", { recipe: recipe })
         })
         .catch(err => next(err))
 })
-
-
-router.get('/:id/delete', (req, res, next) => {
-    const id = req.params.id
-    Recipe.findByIdAndDelete(id)
-        .then(() => {
-            res.redirect('/profile')
-        })
-        .catch(err => next(err))
-})
-
-
 router.get(`/:id/edit`, (req, res, next) => {
     const id = req.params.id
     Recipe.findById(id)
@@ -86,19 +60,16 @@ router.get(`/:id/edit`, (req, res, next) => {
         })
         .catch(err => next(err))
 })
-
 // edit recipes
 router.post('/:id', uploadRecipeImages.single('url'), (req, res, next) => {
     const id = req.params.id
     const url = req.file.path
     const publicId = req.file.filename
-    const { name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body
-    Recipe.findByIdAndUpdate(id, {
-        url, name, description, source, cooktime, servings, calories, ingredients, instructions, tags, publicId
-    }, { new: true })
+    const { name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body;
+
+    Recipe.findByIdAndUpdate(id, { url, name, description, source, cooktime, servings, calories, ingredients, instructions, tags, publicId })
         .then(recipeFromDB => {
             console.log("this is the clg ", recipeFromDB)
-            console.log(recipeFromDB.publicId)
             if (recipeFromDB.url) {
                 cloudinary.uploader.destroy(recipeFromDB.publicId)
             }
@@ -106,8 +77,12 @@ router.post('/:id', uploadRecipeImages.single('url'), (req, res, next) => {
         })
         .catch(err => next(err))
 })
-
-
-
-
+router.get('/:id/delete', (req, res, next) => {
+    const id = req.params.id
+    Recipe.findByIdAndDelete(id)
+        .then(() => {
+            res.redirect('/profile')
+        })
+        .catch(err => next(err))
+})
 module.exports = router;

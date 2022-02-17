@@ -29,7 +29,9 @@ const storage2 = new CloudinaryStorage({
 const uploadRecipeImages = multer({ storage: storage2 })
 const uploader = multer({ storage })
 
+
 module.exports = {
     uploader,
-    uploadRecipeImages
+    uploadRecipeImages,
+    cloudinary
 }

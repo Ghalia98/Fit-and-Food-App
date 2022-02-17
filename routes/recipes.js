@@ -34,20 +34,11 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
 });
 router.get("/search", (req, res, next) => {
     let searchTerm = req.query.recipeTitle
-<<<<<<< HEAD
-    Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } })
-=======
 
     Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } }).populate('creater')
->>>>>>> f26cf8f266b836dd75e9cce0ea795cc5e2941ff6
         .then(recipe => {
-<<<<<<< HEAD
-            console.log(recipe.creater)
-            res.render("recipe/search", {recipe, searchTerm})
-=======
 
             res.render("recipe/search", { recipe, searchTerm })
->>>>>>> a0ae8580ea80a2ed4dfacfd15f6eb08afc1ee5e4
         })
         .catch(err => next(err))
 })

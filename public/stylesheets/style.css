@@ -42,24 +42,24 @@ h1 {
   font-size: 30px;
 }
 
-.recipe-name{
-    font-weight: bold;
-    margin: 30px;
-    font-size: 40px;
+.recipe-name {
+  font-weight: bold;
+  margin: 30px;
+  font-size: 40px;
 }
 
 .recipe-picture {
-    width: 600px;
-    margin-bottom: 20px;;
+  width: 600px;
+  margin-bottom: 20px;
 }
 
-.recipe-card{
-    margin: 20px 200px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px dashed black;
-    padding-bottom: 20px;
+.recipe-card {
+  margin: 20px 200px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dashed black;
+  padding-bottom: 20px;
 }
 
 .recipe-card h1,
@@ -135,38 +135,38 @@ input.search-input-field {
   text-align: center;
 }
 
-.recipes-collection-div{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 25px 0px;
-    border-radius: 5px;
-    justify-content: center;
+.recipes-collection-div {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 25px 0px;
+  border-radius: 5px;
+  justify-content: center;
 }
 
-.recipe-info-box p{
-
-    font-size: 17px;
+.recipe-info-box p {
+  font-size: 17px;
 }
 
-.recipe-info-box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 270px;
-    margin:15px 30px 0px 0px;
+.recipe-info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 270px;
+  margin: 15px 30px 0px 0px;
 }
 
-.creater-img-icon{
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-    object-fit: cover;
+.creater-img-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  object-fit: cover;
 }
 
-.recipe-info-img{
-    width: 270px;
-    height: 420px;
-    object-fit: cover;
+.recipe-info-img {
+  width: 270px;
+  height: 420px;
+  object-fit: cover;
+}
 .recipes-in-search {
   display: flex;
   flex-wrap: wrap;
@@ -300,19 +300,18 @@ input.search-input-field {
   color: white;
 }
 
-.profile-img{
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
+.profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-.profile-body{
-    margin: 0px 90px;
-    padding: 0px 120px;
-    background-color: bisque;
+.profile-body {
+  margin: 0px 90px;
+  padding: 0px 120px;
+  background-color: bisque;
 }
-
 
 #image-container-login {
   padding: 0;

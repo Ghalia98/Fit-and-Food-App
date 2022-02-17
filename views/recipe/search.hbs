@@ -10,8 +10,8 @@
 {{#each recipe}}
 
     <div class="recipe-info-box">
-        <img src="{{url}}" alt="image of {{name}}" class="img-fluid recipe-info-img">
-        <a href="/recipe/{{id}}">{{name}}</a>
+        <a href="/recipe/{{id}}"><img src="{{url}}" alt="image of {{name}}" class="img-fluid recipe-info-img"></a>
+        <a href="/recipe/{{id}}" class="recipe-name-on-search">{{name}}</a>
         {{#with creater}}
             <span><img src="{{imageUrl}}" class="creater-img-icon">{{name}}</span>
             

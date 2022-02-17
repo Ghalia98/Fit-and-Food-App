@@ -53,6 +53,9 @@ h1 {
     font-size: 30px;
 }
 
+
+/* For the details page below */
+
 .recipe-name {
     font-weight: bold;
     margin: 30px;
@@ -61,22 +64,86 @@ h1 {
 
 .recipe-picture {
     width: 600px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    height: 600px;
+    object-fit: cover;
 }
 
 .recipe-card {
-    margin: 20px 200px 0px;
+    margin: 60px 200px 0px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     border: 1px dashed black;
-    padding-bottom: 20px;
-}
-
-.recipe-card h1,
-.recipe-card h3 {
+    padding: 20px 100px;
     font-family: "Marcellus", serif;
 }
+
+.center-align {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-tags {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.recipe-tags span {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.badge {
+    background-color: #ffe4c4;
+}
+
+th {
+    font-size: 17px;
+    padding: 10px 20px 5px 20px;
+    font-weight: bold;
+}
+
+td {
+    text-align: center;
+    font-size: 15px;
+}
+
+.recipe-meta-info {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.ingredients {
+    margin: 20px 20px 0px 60px;
+}
+
+.ingredient-name,
+.instruction {
+    font-size: 18px;
+}
+
+.instructions-div {
+    margin: 30px 20px 0px 60px;
+}
+
+input[type=checkbox]:checked+label {
+    color: black;
+    text-decoration: line-through;
+}
+
+.notes {
+    margin: 10px 20px 0px 60px;
+}
+
+.notes p {
+    font-size: 16px;
+}
+
+
+/* end of the details page */
 
 .add-more-row {
     margin: 0.5em 0 3em;
@@ -124,6 +191,9 @@ footer {
     margin-top: 10em;
 }
 
+
+/* search and recipes display in user profile related styling starts */
+
 .search-bar {
     margin: 4em;
     display: flex;
@@ -151,10 +221,6 @@ input.search-input-field {
     padding: 25px 0px;
     border-radius: 5px;
     justify-content: center;
-}
-
-.recipe-info-box p {
-    font-size: 17px;
 }
 
 .recipe-info-box {
@@ -235,6 +301,20 @@ input.search-input-field {
     text-align: center;
     font-weight: bold;
 }
+
+.recipe-name-on-search {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* search and recipes display in user profile styling ends */
 
 .form-container {
     border-radius: 30px;

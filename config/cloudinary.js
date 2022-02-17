@@ -26,12 +26,22 @@ const storage2 = new CloudinaryStorage({
     }
 })
 
+const storage3 = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'event-images',
+        allowed_formats: 'jpg, png'
+    }
+})
+
 const uploadRecipeImages = multer({ storage: storage2 })
+const uploadEventImages = multer({ storage: storage3 })
 const uploader = multer({ storage })
 
 
 module.exports = {
     uploader,
     uploadRecipeImages,
-    cloudinary
+    cloudinary,
+    uploadEventImages
 }

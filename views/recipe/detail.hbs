@@ -1,38 +1,70 @@
 {{#with recipe}}
     <div class="recipe-card">
         <h1 class="recipe-name">{{name}}</h1>
-        {{#if tags}}
 
-        //working point from here
-        <h3>Tags: <span class="badge badge-pill badge-danger">{{tags}}</span></h3>
+        {{#if tags}}
+        <div class="recipe-tags">
+            {{#each tags}}
+            <span class="badge rounded-pill text-dark">{{this}} </span>
+            {{/each}}
+        </div>
         {{/if}}
-        
         <img src="{{url}}" alt="Image of {{name}}" class="recipe-picture img-fluid">
         {{#if source}}
-        <h3>Source: </h3><a href="{{source}}" target="_blank">{{source}}</a>
+        {{!-- <h3>Source: </h3><a href="{{source}}" target="_blank">{{source}}</a> --}}
         {{/if}}
-        {{#if cooktime}}
-        <h3>Cook Time: </h3>{{cooktime}}
-        {{/if}}
-        <h3>Servings: </h3>{{servings}}
-        {{#if calories}}
-        <h3>Calories: </h3>{{calories}}
-        {{/if}}
+        <table class="recipe-meta-info">
+            <thead>
+                <tr>
+                {{#if cooktime}}
+                <th scope="col" style="border-right: 1px solid black;">Cook Time</th>
+                {{/if}}
+                {{#if servings}}
+                <th scope="col">Servings</th>
+                {{/if}}
+                {{#if calories}}
+                <th scope="col" style="border-left: 1px solid black;">Calories</th>
+                {{/if}}   
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {{#if cooktime}}
+                        <td style="border-right: 1px solid black;">{{cooktime}}</td>
+                    {{/if}}
 
-        <h3>Instructions: </h3>
-        <ol>
-        {{#each instructions}}
-            <li>{{this}}</li>
-        {{/each}}
-        </ol>
+                    {{#if servings}}
+                        <td>{{servings}}</td>
+                    {{/if}}
 
-        <h3>Ingredients: </h3>
-        <ul>
-        {{#each ingredients}}
-            <li>{{this}}</li>
-        {{/each}}
-        </ul>
-        
+                    {{#if calories}}
+                        <td style="border-left: 1px solid black;">{{calories}}</td>
+                    {{/if}}
+                </tr>        
+            </tbody>
+        </table>
+
+        <div class="ingredients">
+            <h3>Ingredients: </h3>
+            {{#each ingredients}}
+                <input type="checkbox"> <label class="ingredient-name">{{this}}</label><br>
+            {{/each}}
+        </div>
+
+        <div class="instructions-div">
+            <h3>Instructions: </h3>
+            <ol>
+            {{#each instructions}}
+                <li class="instruction">{{this}}</li>
+            {{/each}}
+            </ol>
+        </div>
+
+        <div class="notes">
+            <h3>Notes: </h3>
+            <p><i>Inspiration for this recipe: </span><a href="{{source}}" target="_blank">{{source}}</a></i></p>
+        </div>
+
     </div>
   
 <a href="/recipe/{{_id}}/delete">Delete {{name}}</a>

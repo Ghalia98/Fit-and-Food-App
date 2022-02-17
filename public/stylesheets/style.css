@@ -42,6 +42,8 @@ h1 {
   font-size: 30px;
 }
 
+/* For the details page below */
+
 .recipe-name {
   font-weight: bold;
   margin: 30px;
@@ -50,22 +52,77 @@ h1 {
 
 .recipe-picture {
     width: 600px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .recipe-card{
-    margin: 20px 200px 0px;
+    margin: 60px 200px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px dashed black;
-    padding-bottom: 20px;
+    padding: 20px 100px;
+    font-family: "Marcellus", serif;
 } 
 
-.recipe-card h1,
-.recipe-card h3 {
-  font-family: "Marcellus", serif;
+.recipe-tags{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
+
+.recipe-tags span{
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.badge{
+    background-color: #ffe4c4;
+}
+
+th{
+    font-size: 17px;
+    padding: 10px 20px 5px 20px;
+    font-weight: bold;
+}
+td{
+    text-align: center;
+    font-size: 15px;
+}
+
+.recipe-meta-info{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.ingredients{
+    margin: 0px 30px 30px 30px;
+    padding-right: 45px;
+}
+
+.ingredient-name, .instruction{
+    font-size: 18px;
+}
+
+.instructions-div{
+    margin: 10px 40px;
+}
+
+input[type=checkbox]:checked + label {
+    color: black;
+    text-decoration: line-through;
+} 
+
+.notes h3{
+    padding-right: 78px;
+}
+
+.notes p{
+    font-size: 16px;
+}
+
+/* end of the details page */
 
 .add-more-row {
   margin: 0.5em 0 3em;
@@ -114,6 +171,8 @@ footer {
   margin-top: 10em;
 }
 
+/* search and recipes display in user profile related styling starts */
+
 .search-bar {
   margin: 4em;
   display: flex;
@@ -147,14 +206,6 @@ input.search-input-field {
   font-size: 17px;
 }
 
-.recipe-info-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 270px;
-  margin: 15px 30px 0px 0px;
-}
-
 .creater-img-icon {
   width: 40px;
   height: 40px;
@@ -183,12 +234,6 @@ input.search-input-field {
   margin: 15px 30px 0px 0px;
 }
 
-.recipe-info-box img {
-  width: 270px;
-  height: 420px;
-  object-fit: cover;
-}
-
 .recipe-info-box a {
   text-decoration: none;
   color: black;
@@ -199,6 +244,8 @@ input.search-input-field {
   text-align: center;
   font-weight: bold;
 }
+
+/* search and recipes display in user profile styling ends */
 
 /* .carousel-item {
   height: 100vh;
@@ -353,3 +400,4 @@ input.search-input-field {
   font-size: 0.9rem;
 }
 /*end of login-form style */
+

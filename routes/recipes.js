@@ -48,8 +48,14 @@ router.get("/:id", (req, res, next) => {
     Recipe.findById(id)
         .then(recipe => {
             //console.log(recipe)
-            const showDelete = req.session.user._id === recipe.creater.toString()
-            console.log(showDelete)
+            let showDelete;
+            if (!req.session.user) {
+                showDelete = false
+            }
+            else {
+                showDelete = req.session.user._id === recipe.creater.toString()
+                console.log(showDelete)
+            }
             res.render("recipe/detail", { recipe: recipe, showDelete })
         })
         .catch(err => next(err))

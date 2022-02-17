@@ -248,18 +248,6 @@ input.search-input-field {
     font-weight: bold;
 }
 
-/* search and recipes display in user profile styling ends */
-
-/* .carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-} */
-
 .form-container {
   border-radius: 30px;
   width: 70%;

@@ -1,7 +1,7 @@
 {{#with recipe}}
     <div class="recipe-card">
         <div class="center-align">
-            <h1 class="recipe-name">{{name}}</h1>
+            <h1 class="recipe-name">{{name}}<i class="bi bi-trash-fill"></i></h1>
 
             <div class="recipe-tags">
                 {{#each tags}}
@@ -10,6 +10,7 @@
                     {{/if}}
                 {{/each}}
             </div>
+            
             
             <img src="{{url}}" alt="Image of {{name}}" class="recipe-picture img-fluid">
         

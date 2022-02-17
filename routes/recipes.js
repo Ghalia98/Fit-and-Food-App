@@ -17,10 +17,7 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
     const { name, description, source, cooktime, servings, calories, ingredients, instructions, tags } = req.body;
     const url = req.file.path
     const creater = req.session.user._id
-<<<<<<< HEAD
     const publicId = req.file.filename
-=======
->>>>>>> master
     //filter the empty inputs
     const filteredIngredients = ingredients.filter((ingredient) => ingredient.length > 0)
     const filteredInstructions = instructions.filter((step) => step.length > 0)
@@ -39,12 +36,8 @@ router.get("/search", (req, res, next) => {
     let searchTerm = req.query.recipeTitle
     Recipe.find({ 'name': { '$regex': ".*" + searchTerm + ".*", '$options': 'i' } })
         .then(recipe => {
-<<<<<<< HEAD
-            res.render("recipe/search", { recipe })
-=======
 
             res.render("recipe/search", { recipe, searchTerm })
->>>>>>> master
         })
         .catch(err => next(err))
 })

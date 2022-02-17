@@ -51,34 +51,26 @@ h1 {
 }
 
 .recipe-picture {
-<<<<<<< HEAD
     width: 600px;
     margin-bottom: 40px;
+    height: 600px;
+    object-fit: cover;
 }
 
 .recipe-card{
     margin: 60px 200px 0px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     border: 1px dashed black;
     padding: 20px 100px;
     font-family: "Marcellus", serif;
 } 
-=======
-  width: 600px;
-  margin-bottom: 20px;
-}
 
-.recipe-card {
-  margin: 20px 200px 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px dashed black;
-  padding-bottom: 20px;
+.center-align{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
->>>>>>> 02201d715a2e4544df6f88d70246e92d851361e3
 
 .recipe-tags{
     display: flex;
@@ -112,8 +104,7 @@ td{
 }
 
 .ingredients{
-    margin: 0px 30px 30px 30px;
-    padding-right: 45px;
+    margin: 20px 20px 0px 60px;
 }
 
 .ingredient-name, .instruction{
@@ -121,7 +112,7 @@ td{
 }
 
 .instructions-div{
-    margin: 10px 40px;
+    margin: 30px 20px 0px 60px;
 }
 
 input[type=checkbox]:checked + label {
@@ -129,8 +120,8 @@ input[type=checkbox]:checked + label {
     text-decoration: line-through;
 } 
 
-.notes h3{
-    padding-right: 78px;
+.notes{
+    margin: 10px 20px 0px 60px;
 }
 
 .notes p{
@@ -217,10 +208,6 @@ input.search-input-field {
   justify-content: center;
 }
 
-.recipe-info-box p {
-  font-size: 17px;
-}
-
 .creater-img-icon {
   width: 40px;
   height: 40px;
@@ -233,6 +220,7 @@ input.search-input-field {
   height: 420px;
   object-fit: cover;
 }
+
 .recipes-in-search {
   display: flex;
   flex-wrap: wrap;
@@ -249,15 +237,15 @@ input.search-input-field {
   margin: 15px 30px 0px 0px;
 }
 
-.recipe-info-box a {
-  text-decoration: none;
-  color: black;
-  font-size: 20px;
-  margin-top: 10px;
-  padding: 10px;
-  margin: 20px;
-  text-align: center;
-  font-weight: bold;
+.recipe-name-on-search{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* search and recipes display in user profile styling ends */
@@ -416,9 +404,6 @@ input.search-input-field {
 }
 /*end of login-form style */
 
-<<<<<<< HEAD
-=======
 .error-message {
   color: red;
 }
->>>>>>> 02201d715a2e4544df6f88d70246e92d851361e3

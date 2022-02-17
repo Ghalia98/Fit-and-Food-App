@@ -56,4 +56,20 @@ router.get('/profile', loginCheck(), (req, res, next) => {
 
 })
 
+router.get('/profile/:id', loginCheck(), (req, res, next) => {
+    const userId = req.params.id
+    Recipe.find()
+        .then(() => {
+            Recipe.find({ 'creater': userId })
+                .then(userRecipes => {
+                    User.findById(userId)
+                        .then(user => {
+                            res.render('user/profile', { user, recipe: userRecipes })
+                        })    
+                })
+
+        })
+
+})
+
 module.exports = router;

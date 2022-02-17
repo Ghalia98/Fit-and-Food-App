@@ -11,10 +11,11 @@
 
     <div class="recipe-info-box">
         <a href="/recipe/{{id}}"><img src="{{url}}" alt="image of {{name}}" class="img-fluid recipe-info-img"></a>
-        <a href="/recipe/{{id}}" class="recipe-name-on-search">{{name}}</a>
+        <a href="/recipe/{{id}}">{{name}}</a>
         {{#with creater}}
-            <span><img src="{{imageUrl}}" class="creater-img-icon">{{name}}</span>
-            
+        <div class="hello">
+            <span>-By <a href="/profile/{{_id}}" class="creater-name">{{name}}</a></span>
+            </div>
         {{/with}}
     </div>
 

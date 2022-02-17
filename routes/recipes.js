@@ -18,10 +18,10 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
     const url = req.file.path
     const creater = req.session.user._id
     const publicId = req.file.filename
-        //filter the empty inputs
+    //filter the empty inputs
     const filteredIngredients = ingredients.filter((ingredient) => ingredient.length > 0)
     const filteredInstructions = instructions.filter((step) => step.length > 0)
-        //create a new recipe in the db
+    //create a new recipe in the db
     Recipe.create({ url, publicId, name, description, source, cooktime, servings, calories, ingredients: filteredIngredients, instructions: filteredInstructions, tags, creater })
         .then(recipeFromDB => {
             console.log(recipeFromDB)
@@ -44,19 +44,15 @@ router.get("/search", (req, res, next) => {
 })
 router.get("/:id", (req, res, next) => {
     const id = req.params.id
-        //console.log(id)
+    //console.log(id)
     Recipe.findById(id).populate('creater')
         .then(recipe => {
             //console.log(recipe)
             let showDelete;
             if (!req.session.user) {
                 showDelete = false
-<<<<<<< HEAD
             }
             else {
-=======
-            } else {
->>>>>>> fda3020a7316663a0f5a78ad1511cdf9a0b3d4ec
                 showDelete = req.session.user._id == recipe.creater._id
                 console.log(showDelete)
             }
@@ -65,16 +61,16 @@ router.get("/:id", (req, res, next) => {
         .catch(err => next(err))
 })
 router.get(`/:id/edit`, (req, res, next) => {
-        const id = req.params.id
-        Recipe.findById(id)
-            .then(recipesFromDB => {
-                res.render('recipe/edit', {
-                    recipe: recipesFromDB
-                })
+    const id = req.params.id
+    Recipe.findById(id)
+        .then(recipesFromDB => {
+            res.render('recipe/edit', {
+                recipe: recipesFromDB
             })
-            .catch(err => next(err))
-    })
-    // edit recipes
+        })
+        .catch(err => next(err))
+})
+// edit recipes
 router.post('/:id', uploadRecipeImages.single('url'), (req, res, next) => {
     const id = req.params.id
     const url = req.file.path

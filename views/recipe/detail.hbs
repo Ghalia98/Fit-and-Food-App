@@ -1,49 +1,49 @@
 {{#with recipe}}
     <div class="recipe-card">
-        <h1 class="recipe-name">{{name}}</h1>
+        <div class="center-align">
+            <h1 class="recipe-name">{{name}}</h1>
 
-        {{#if tags}}
-        <div class="recipe-tags">
-            {{#each tags}}
-            <span class="badge rounded-pill text-dark">{{this}} </span>
-            {{/each}}
-        </div>
-        {{/if}}
-        <img src="{{url}}" alt="Image of {{name}}" class="recipe-picture img-fluid">
-        {{#if source}}
-        {{!-- <h3>Source: </h3><a href="{{source}}" target="_blank">{{source}}</a> --}}
-        {{/if}}
-        <table class="recipe-meta-info">
-            <thead>
-                <tr>
-                {{#if cooktime}}
-                <th scope="col" style="border-right: 1px solid black;">Cook Time</th>
-                {{/if}}
-                {{#if servings}}
-                <th scope="col">Servings</th>
-                {{/if}}
-                {{#if calories}}
-                <th scope="col" style="border-left: 1px solid black;">Calories</th>
-                {{/if}}   
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
+            <div class="recipe-tags">
+                {{#each tags}}
+                    {{#if this}}
+                    <span class="badge rounded-pill text-dark">{{this}}</span>
+                    {{/if}}
+                {{/each}}
+            </div>
+            
+            <img src="{{url}}" alt="Image of {{name}}" class="recipe-picture img-fluid">
+        
+            <table class="recipe-meta-info">
+                <thead>
+                    <tr>
                     {{#if cooktime}}
-                        <td style="border-right: 1px solid black;">{{cooktime}}</td>
+                    <th scope="col" style="border-right: 1px solid black;">Cook Time</th>
                     {{/if}}
-
                     {{#if servings}}
-                        <td>{{servings}}</td>
+                    <th scope="col">Servings</th>
                     {{/if}}
-
                     {{#if calories}}
-                        <td style="border-left: 1px solid black;">{{calories}}</td>
-                    {{/if}}
-                </tr>        
-            </tbody>
-        </table>
+                    <th scope="col" style="border-left: 1px solid black;">Calories</th>
+                    {{/if}}   
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {{#if cooktime}}
+                            <td style="border-right: 1px solid black;">{{cooktime}}</td>
+                        {{/if}}
 
+                        {{#if servings}}
+                            <td>{{servings}}</td>
+                        {{/if}}
+
+                        {{#if calories}}
+                            <td style="border-left: 1px solid black;">{{calories}}</td>
+                        {{/if}}
+                    </tr>        
+                </tbody>
+            </table>
+        </div>
         <div class="ingredients">
             <h3>Ingredients: </h3>
             {{#each ingredients}}
@@ -60,10 +60,12 @@
             </ol>
         </div>
 
+        {{#if source}}
         <div class="notes">
             <h3>Notes: </h3>
             <p><i>Inspiration for this recipe: </span><a href="{{source}}" target="_blank">{{source}}</a></i></p>
         </div>
+        {{/if}}
 
     </div>
   {{#if ../showDelete}}

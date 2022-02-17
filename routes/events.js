@@ -52,7 +52,15 @@ router.get("/:id", (req, res, next) => {
         .populate('creater')
         .then(event => {
             console.log(event)
-            res.render("event/details", { event: event })
+            let showDelete;
+            if (!req.session.user) {
+                showDelete = false
+            }
+            else {
+                showDelete = req.session.user._id == event.creater._id
+                console.log(showDelete)
+            }
+            res.render("event/details", { event: event, showDelete })
         })
         .catch(err => next(err))
 })

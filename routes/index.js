@@ -68,7 +68,6 @@ router.get('/profile/:id', loginCheck(), (req, res, next) => {
                                 .then(userEvents => {
                                     res.render('user/profile', { user, recipe: userRecipes, event: userEvents })
                                 })
-                            // res.render('user/profile', { user, recipe: userRecipes })
                         })
                 })
 

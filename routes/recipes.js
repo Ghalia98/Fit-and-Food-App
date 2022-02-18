@@ -21,8 +21,9 @@ router.post('/new', uploadRecipeImages.single('url'), (req, res, next) => {
         //filter the empty inputs
     const filteredIngredients = ingredients.filter((ingredient) => ingredient.length > 0)
     const filteredInstructions = instructions.filter((step) => step.length > 0)
-        //create a new recipe in the db
-    Recipe.create({ url, publicId, name, description, source, cooktime, servings, calories, ingredients: filteredIngredients, instructions: filteredInstructions, tags, creater })
+
+    //create a new recipe in the db
+    Recipe.create({ url, publicId, name, description, source, cooktime, servings, calories, ingredients: filteredIngredients, instructions: filteredInstructions, tags: tags.split(","), creater })
         .then(recipeFromDB => {
             console.log(recipeFromDB)
             res.redirect('/recipe/' + recipeFromDB._id)

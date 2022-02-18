@@ -9,27 +9,27 @@
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Event Title<span>*</span></label>
-                    <input type="text" class="form-control" name="title" value={{event.title}} required>
+                    <input type="text" class="form-control" name="title" value="{{event.title}}" required>
                 </div>
                 <div class="row g-2">
                     <div class="col-md-6">
                         <label for="startDate" class="form-label">Start Date<span>*</span></label>
-                        <input type="date" class="form-control start-date" name="startDate" min="{{dateNow}}" pattern="\d{4}-\d{2}-\d{2}" value={{event.startDate}} required>
+                        <input type="date" class="form-control start-date" name="startDate" min="{{dateNow}}" pattern="\d{4}-\d{2}-\d{2}" value="{{event.startDate}}" required>
                     </div>
                 </div>
                 <div class="row g-2">
                     <div class="col-md-6">
                         <label for="startTime" class="form-label">Start Time<span>*</span></label>
-                        <input type="time" class="form-control" name="startTime" value={{event.startTime}} required>
+                        <input type="time" class="form-control" name="startTime" value="{{event.startTime}}" required>
                     </div>
                     <div class="col-md-6">
                         <label for="endTime" class="form-label">End Time</label>
-                        <input type="time" class="form-control" name="endTime" value={{event.endTime}}>
+                        <input type="time" class="form-control" name="endTime" value="{{event.endTime}}">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="location" class="form-label">Location(city)<span>*</span></label>
-                    <select class="form-control" name="location" value={{event.location}} required>
+                    <select class="form-control" name="location" value="{{event.location}}" required>
                         <option>Berlin</option>
                         <option>Frankfurt</option>
                         <option>Hamburg</option>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="tags" class="form-label">Tags</label>
-                    <input type="text" class="form-control" name="tags" data-role="tagsinput" value={{event.tags}}>
+                    <input type="text" class="form-control" name="tags" data-role="tagsinput" value="{{event.tags}}">
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <button class="btn btn-primary" type="submit">Edit the event</button>

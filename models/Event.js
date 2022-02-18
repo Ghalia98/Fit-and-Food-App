@@ -5,7 +5,6 @@ const eventSchema = new Schema({
         type: String,
         required: true
     },
-
     creater: {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -18,10 +17,7 @@ const eventSchema = new Schema({
         type: String,
         required: true
     },
-    endTime: {
-        type: String,
-        required: true
-    },
+    endTime: String,
     location: {
         type: String,
         required: true
@@ -37,7 +33,6 @@ const eventSchema = new Schema({
 
     tags: [String],
     publicId: String,
-    tags: [String]
 });
 
 const Event = mongoose.model('Event', eventSchema);

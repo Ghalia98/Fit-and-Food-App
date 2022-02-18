@@ -18,7 +18,8 @@ router.post('/new', uploadEventImages.single('img'), (req, res, next) => {
     const img = req.file.path
     const creater = req.session.user._id
     const publicId = req.file.filename
-    Event.create({ img, publicId, title, creater, startDate, startTime, endTime, location, description, tags })
+
+    Event.create({ img, publicId, title, creater, startDate, startTime, endTime, location, description, tags: tags.split(",") })
         .then(eventFromDB => {
             console.log(eventFromDB)
             res.redirect('/event/' + eventFromDB._id)
@@ -48,15 +49,13 @@ router.get("/search", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
     const id = req.params.id
     console.log(id)
-    Event.findById(id)
-        .populate('creater')
+    Event.findById(id).populate('creater')
         .then(event => {
             console.log(event)
             let showDelete;
             if (!req.session.user) {
                 showDelete = false
-            }
-            else {
+            } else {
                 showDelete = req.session.user._id == event.creater._id
                 console.log(showDelete)
             }
@@ -105,7 +104,7 @@ router.get('/:id/delete', (req, res, next) => {
             if (event.img) {
                 cloudinary.uploader.destroy(event.publicId)
             }
-            res.redirect('/')
+            res.redirect('/profile')
         })
         .catch(err => next(err))
 })

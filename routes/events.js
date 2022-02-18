@@ -18,7 +18,8 @@ router.post('/new', uploadEventImages.single('img'), (req, res, next) => {
     const img = req.file.path
     const creater = req.session.user._id
     const publicId = req.file.filename
-    Event.create({ img, publicId, title, creater, startDate, startTime, endTime, location, description, tags })
+
+    Event.create({ img, publicId, title, creater, startDate, startTime, endTime, location, description, tags: tags.split(",") })
         .then(eventFromDB => {
             console.log(eventFromDB)
             res.redirect('/event/' + eventFromDB._id)
@@ -54,8 +55,7 @@ router.get("/:id", (req, res, next) => {
             let showDelete;
             if (!req.session.user) {
                 showDelete = false
-            }
-            else {
+            } else {
                 showDelete = req.session.user._id == event.creater._id
                 console.log(showDelete)
             }

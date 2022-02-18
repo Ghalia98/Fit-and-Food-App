@@ -4,8 +4,8 @@
             <h1>Create your Event 🥳</h1>
             <form action="/event/new" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label for="img" class="form-label">Upload your event photo (optional)</label>
-                    <input type="file" class="form-control" name="img">
+                    <label for="img" class="form-label">Upload your event photo<span>*</span></label>
+                    <input type="file" class="form-control" name="img" required>
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Event Title<span>*</span></label>
@@ -30,11 +30,12 @@
                 <div class="mb-3">
                     <label for="location" class="form-label">Location(city)<span>*</span></label>
                     <select class="form-control" name="location" required>
-                        <option>Berlin</option>
-                        <option>Frankfurt</option>
-                        <option>Hamburg</option>
-                        <option>Munich</option>
-                        <option>Others</option>
+                        <option selected>Select City</option>
+                        <option value="Berlin">Berlin</option>
+                        <option value="Frankfurt">Frankfurt</option>
+                        <option value="Hamburg">Hamburg</option>
+                        <option value="Munich">Munich</option>
+                        <option value="Others">Others</option>
                     </select>
                 </div>
                 <div class="mb-3">

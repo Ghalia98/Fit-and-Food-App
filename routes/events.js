@@ -104,7 +104,7 @@ router.get('/:id/delete', (req, res, next) => {
             if (event.img) {
                 cloudinary.uploader.destroy(event.publicId)
             }
-            res.redirect('/')
+            res.redirect('/profile')
         })
         .catch(err => next(err))
 })

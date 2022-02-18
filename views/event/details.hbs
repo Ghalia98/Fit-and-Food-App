@@ -2,19 +2,14 @@
     {{#with event}}
     <div class="event-details-box">
         <div class="join-event">
-<<<<<<< HEAD
-            <img src="{{cloudinaryResize this.img "c_fill,w_500,h_400"}}" alt="Image of the {{title}} event">
-=======
             {{#if img}}
                 <img src="{{cloudinaryResize this.img "c_fill,w_500,h_400"}}" alt="Image of the {{title}} event">
             {{/if}}
->>>>>>> 8d6ce98b3693b41f2cfb20d5334e070114146c8f
             <div>
                 <p>⏰{{startDate}}, {{startTime}} - {{endTime}}</p>
                 <h1>{{title}}</h1>
-                <p>Created by {{creater.name}}</p>
+                <span>-By <a href="/profile/{{creater._id}}">{{creater.name}}</a></span>
                 <button type="submit" class="read-more-event">Join this event</button>
-                <p class="participant">{{participant}} people are going</p>
             </div>
         </div>
 

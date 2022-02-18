@@ -12,50 +12,53 @@
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" name="name" placeholder="Grandma's dumpling" value={{recipe.name}}>
+          <input type="text" class="form-control" name="name" placeholder="Grandma's dumpling" value="{{recipe.name}}">
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <textarea value={{recipe.description}} class="form-control" name="description" rows="3"
-            placeholder="Introduce us about your recipe - who inspired it, who you cooked it for, on which occasion you cooked or why it's special... "></textarea>
+          <textarea  class="form-control" name="description" rows="3">{{recipe.description}}</textarea>
         </div>
         <div class="mb-3">
           <label for="source" class="form-label">Origin (optional)</label>
-          <input type="text" class="form-control" name="source" placeholder="get inspired from...">
+          <input type="text" class="form-control" name="source" placeholder="get inspired from..." value="{{recipe.source}}" >
         </div>
         <div class="mb-3">
           <label for="cooktime" class="form-label">Cook time</label>
-          <input type="number" class="form-control" name="cooktime" placeholder="">
+          <input type="number" class="form-control" name="cooktime" placeholder="" value="{{recipe.cooktime}}">
         </div>
         <div class="mb-3">
           <label for="servings" class="form-label">Servings</label>
-          <input type="number" class="form-control" name="servings" placeholder="">
+          <input type="number" class="form-control" name="servings" placeholder="" value="{{recipe.servings}}">
         </div>
         <div class="mb-3">
           <label for="calories" class="form-label">Calories</label>
-          <input type="number" class="form-control" name="calories" placeholder="">
+          <input type="number" class="form-control" name="calories" placeholder="" value="{{recipe.calories}}">
         </div>
         <div class="mb-3 ingredients-container">
           <label for="ingredients" class="form-label">Ingredients</label>
-          <input type="text" class="form-control" name="ingredients" placeholder="250gr flour">
-          <input type="text" class="form-control" name="ingredients" placeholder="100ml milk">
-          <input type="text" class="form-control" name="ingredients" placeholder="250gr chicken breast">
+          {{#each recipe.ingredients}}
+          <input type="text" class="form-control" name="ingredients" placeholder="250gr flour" value="{{this}}">
+          {{/each}}
+          {{!-- <input type="text" class="form-control" name="ingredients" placeholder="100ml milk" value="{{recipe.ingredients}}">
+          <input type="text" class="form-control" name="ingredients" placeholder="250gr chicken breast" value="{{recipe.ingredients}}"> --}}
         </div>
         <div class="d-grid gap-2">
           <button class="btn btn-primary add-ingredients" type="button">Add more ingredients</button>
         </div>
         <div class="mb-3 instruction-steps">
           <label for="instructions" class="form-label">Instructions</label>
-          <textarea class="form-control" name="instructions" rows="3" placeholder="Step1"></textarea>
-          <textarea class="form-control" name="instructions" rows="3" placeholder="Step2"></textarea>
-          <textarea class="form-control" name="instructions" rows="3" placeholder="Step3"></textarea>
+          {{#each recipe.instructions}}
+          <textarea class="form-control" name="instructions" rows="3" placeholder="Step1">{{this}}</textarea>
+          {{!-- <textarea class="form-control" name="instructions" rows="3" placeholder="Step2"></textarea> --}}
+          {{!-- <textarea class="form-control" name="instructions" rows="3" placeholder="Step3"></textarea> --}}
+          {{/each}}
         </div>
         <div class="d-grid gap-2">
           <button class="btn btn-primary add-steps" type="button">Add more steps</button>
         </div>
         <div class="mb-3">
           <label for="tags" class="form-label">Tags</label>
-          <input type="text" class="form-control" name="tags" placeholder="">
+          <input type="text" class="form-control" name="tags" placeholder="" value="{{recipe.tags}}">
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
           <button class="btn btn-primary" type="submit">Edit your recipe</button>

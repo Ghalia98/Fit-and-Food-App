@@ -56,7 +56,9 @@
         <div class="ingredients">
             <h3>Ingredients: </h3>
             {{#each ingredients}}
+            {{#if this}}
                 <input type="checkbox"> <label class="ingredient-name">{{this}}</label><br>
+                {{/if}}
             {{/each}}
         </div>
 
@@ -64,7 +66,9 @@
             <h3>Instructions: </h3>
             <ol>
             {{#each instructions}}
+            {{#if this}}
                 <li class="instruction">{{this}}</li>
+                {{/if}}
             {{/each}}
             </ol>
         </div>

@@ -1,17 +1,20 @@
 
 <div class="profile-body">
-    <h1>Profile</h1>
-
+ 
     {{#with user}}
-        <img src="{{imageUrl}}" alt="Picture of {{name}}" class="profile-img" >
-        <h3 class="user-name">{{name}}</h3>
-        <h3>{{city}}</h3>
-        <h3>{{age}}</h3>
-        <p>{{intro}}</p>
+        <div class="user-info">
+            <img src="{{imageUrl}}" alt="Picture of {{name}}" class="profile-img" >
+            
+            <div class="user-info-sub-div">
+                <h4 class="user-name">{{name}}</h4>
+                <h5>{{city}}</h5>
+                <p>{{intro}}</p>
+            </div>
+        </div>
+        
     {{/with}}
 
-
-    <h2>My Recipes</h2>
+    <h4 class="text-center">Check out my recipes below!</h4>
     <div class="recipes-collection-div">
     {{#each recipe}}
 
@@ -23,7 +26,7 @@
     {{/each}}
     </div>
 
-     <h2>My Events</h2>
+    <h4 class="text-center">Events Hosted</h4>
     <div class="recipes-collection-div">
     {{#each event}}
         <div class="recipe-info-box">

@@ -8,9 +8,8 @@
             <div>
                 <p>⏰{{startDate}}, {{startTime}} - {{endTime}}</p>
                 <h1>{{title}}</h1>
-                <p>Created by {{creater.name}}</p>
+                <span>-By <a href="/profile/{{creater._id}}">{{creater.name}}</a></span>
                 <button type="submit" class="read-more-event">Join this event</button>
-                <p class="participant">{{participant}} people are going</p>
             </div>
         </div>
 

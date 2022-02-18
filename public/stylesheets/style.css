@@ -471,16 +471,33 @@ input.search-input-field {
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.user-info{
+    display: flex;
+    background-color: #000000cf;
+    height: 120px;
+    padding: 20px 30px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin-bottom: 80px;
+    color: #fff;
+}
+
+.user-info-sub-div{
+    padding: 30px;
 }
 
 .profile-body {
-    margin: 0px 90px;
-    padding: 0px 120px;
-    background-color: bisque;
+    font-family: "Marcellus", serif;
+    margin: 60px 170px 0px;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 #image-container-login {

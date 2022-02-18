@@ -51,12 +51,8 @@ router.get("/:id", (req, res, next) => {
             let showDelete;
             if (!req.session.user) {
                 showDelete = false
-<<<<<<< HEAD
             }
             else {
-=======
-            } else {
->>>>>>> fda3020a7316663a0f5a78ad1511cdf9a0b3d4ec
                 showDelete = req.session.user._id == recipe.creater._id
                 console.log(showDelete)
             }
